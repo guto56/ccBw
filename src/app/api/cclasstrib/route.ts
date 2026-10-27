@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
-import { CCLASSTRIB } from "@/lib/fiscal/tabelas";
-import { tratamentoDe } from "@/lib/fiscal/motor";
+import cclasstribJson from "@/data/cclasstrib.json";
+import type { ClassTrib } from "@/lib/fiscal/tabelas";
+import { tratamentoDe } from "@/lib/fiscal/tratamento";
+
+const CCLASSTRIB = cclasstribJson as unknown as { publicacaoMaisRecente: string; classificacoes: ClassTrib[] };
 
 /** Códigos válidos em NF-e/NFC-e, para o contador escolher ao editar. */
 export async function GET() {

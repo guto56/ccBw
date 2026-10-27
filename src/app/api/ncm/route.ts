@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { formatarNcm } from "@/lib/fiscal/texto";
-import { VERSOES, validarNcm } from "@/lib/fiscal/tabelas";
+import { validarNcm } from "@/lib/fiscal/tabelas-ncm";
+import { VERSOES } from "@/lib/fiscal/versoes";
 
 export async function GET(req: Request) {
   const codigo = new URL(req.url).searchParams.get("codigo") ?? "";

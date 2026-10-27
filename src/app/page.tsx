@@ -4,7 +4,7 @@ import { classesBotao } from "@/components/ui/botao";
 import { Furos } from "@/components/ui/furos";
 import { Marca } from "@/components/ui/marca";
 import { ToggleTema } from "@/components/ui/toggle-tema";
-import { VERSOES } from "@/lib/fiscal/tabelas";
+import { VERSOES } from "@/lib/fiscal/versoes";
 
 const PASSOS = [
   {

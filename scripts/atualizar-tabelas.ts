@@ -22,6 +22,9 @@ const URL_CCLASSTRIB = "https://dfe-portal.svrs.rs.gov.br/DFE/ClassificacaoTribu
 
 const local = process.argv.includes("--local");
 
+/** cClassTrib de venda de mercadorias usados pelo motor (ver ESCOPO_ANEXOS em src/lib/fiscal/motor.ts). */
+const ESCOPO = new Set(["200003", "200014", "200013", "200004", "200007", "200034", "200035", "200038", "200030", "200031", "200033"]);
+
 type NcmBruto = {
   Data_Ultima_Atualizacao_NCM: string;
   Ato: string;
@@ -170,7 +173,7 @@ async function main() {
         fim: ct.DthFimVig?.slice(0, 10) ?? null,
       });
       for (const a of ct.Anexos ?? []) {
-        if (a.TipoCodigo !== "NCM") continue;
+        if (a.TipoCodigo !== "NCM" || !ESCOPO.has(ct.CodClassTrib)) continue;
         if (a.DthFimVig && a.DthFimVig.slice(0, 10) < hoje) continue;
         const cod = a.CodNcmNbs.replace(/\D/g, "");
         (anexosPorNcm[cod] ??= []).push({
@@ -181,7 +184,6 @@ async function main() {
           exc: a.DescExcecao,
           obs: a.Observacao,
           item: a.DescItemAnexo,
-          titulo: a.DescAnexo,
           inicio: a.DthIniVig?.slice(0, 10) ?? null,
         });
       }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Marca } from "@/components/ui/marca";
-import { VERSOES } from "@/lib/fiscal/tabelas";
+import { VERSOES } from "@/lib/fiscal/versoes";
 
 export const metadata: Metadata = { title: "Termos de uso" };
 

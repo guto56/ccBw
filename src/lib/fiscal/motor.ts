@@ -13,6 +13,7 @@
  */
 import { ANEXOS, CCLASSTRIB, classTrib, type ClassTrib, type EntradaAnexo, NCM, validarNcm } from "./tabelas";
 import { formatarNcm, normalizar, radicais, temAlgum } from "./texto";
+import { tratamentoDe } from "./tratamento";
 import type {
   Confianca,
   PendenciaIA,
@@ -153,12 +154,7 @@ export function menorConfianca(a: Confianca, b: Confianca): Confianca {
   return ORDEM_CONFIANCA[a] <= ORDEM_CONFIANCA[b] ? a : b;
 }
 
-export function tratamentoDe(ct: ClassTrib): Tratamento {
-  if (ct.cst === "000") return "integral";
-  if (ct.cst === "200" && ct.pRedIBS === 100 && ct.pRedCBS === 100) return "zero";
-  if (ct.cst === "200" && ct.pRedIBS === 60 && ct.pRedCBS === 60) return "reducao60";
-  return "outro";
-}
+export { tratamentoDe };
 
 function artigo(ct: ClassTrib): string | null {
   const m = ct.url?.match(/#art(\d+)/i);
