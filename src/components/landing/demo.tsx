@@ -10,7 +10,7 @@ import { ROTULO_TRATAMENTO, type Sugestao } from "@/lib/fiscal/tipos";
 
 type Resultado = { id: string; sugestao: Sugestao };
 
-const COR: Record<string, string> = { zero: "text-ok", reducao60: "text-ok", integral: "text-grafite", outro: "text-grafite-2" };
+const COR: Record<string, string> = { zero: "text-ok-texto", reducao60: "text-ok-texto", integral: "text-grafite", outro: "text-grafite-2" };
 
 function reduzMovimento() {
   return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -116,8 +116,8 @@ export function DemoDanfe() {
                         <span className="codigo block text-rotulo text-grafite-3 sm:hidden">NCM {p.ncm.length === 8 ? formatarNcm(p.ncm) : p.ncm}</span>
                       </td>
                       <td className="codigo hidden px-2 whitespace-nowrap sm:table-cell">{p.ncm.length === 8 ? formatarNcm(p.ncm) : p.ncm}</td>
-                      <td className={`codigo hidden px-2 sm:table-cell ${s ? "imprimindo" : ""}`}>{s ? s.cst || "—" : <span className="text-linha-forte">···</span>}</td>
-                      <td className={`codigo px-2 ${s ? "imprimindo" : ""}`}>{s ? s.cClassTrib || "—" : <span className="text-linha-forte">······</span>}</td>
+                      <td className={`codigo hidden px-2 sm:table-cell ${s ? "imprimindo" : ""}`}>{s ? s.cst || "—" : <span aria-hidden="true" className="inline-block w-6 border-b border-dotted border-linha-forte align-middle" />}</td>
+                      <td className={`codigo px-2 ${s ? "imprimindo" : ""}`}>{s ? s.cClassTrib || "—" : <span aria-hidden="true" className="inline-block w-12 border-b border-dotted border-linha-forte align-middle" />}</td>
                       <td className={`truncate px-3 sm:whitespace-nowrap ${s ? `imprimindo ${COR[s.tratamento]}` : ""}`}>
                         {s ? (
                           s.status === "ncm_invalido" ? (

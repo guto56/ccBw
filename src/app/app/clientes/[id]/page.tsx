@@ -99,7 +99,7 @@ export default function PaginaCliente() {
         </div>
       )}
 
-      <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+      <div className="mt-6 grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
         <EnvioArquivos cliente={cliente} />
 
         <section aria-labelledby="t-lotes">
@@ -107,7 +107,7 @@ export default function PaginaCliente() {
             Lotes
           </h2>
           {lotes === undefined ? null : lotes.length === 0 ? (
-            <p className="mt-2 text-grafite-2">Nenhum lote ainda. Envie os XMLs ou a planilha ao lado.</p>
+            <p className="mt-2 text-grafite-2">Nenhum lote ainda. Envie os XMLs ou a planilha do cliente.</p>
           ) : (
             <div className="mt-2 flex overflow-hidden rounded-campo border border-linha bg-superficie">
               <Furos />

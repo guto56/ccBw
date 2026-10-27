@@ -185,7 +185,7 @@ export default function Estilo() {
                   <td className="px-3">{l[0]}</td>
                   <td className="codigo px-3">{l[1]}</td>
                   <td className="codigo px-3">{l[2]}</td>
-                  <td className={`px-3 ${l[3] === "Integral" ? "" : "font-medium text-ok"}`}>{l[3]}</td>
+                  <td className={`px-3 ${l[3] === "Integral" ? "" : "font-medium text-ok-texto"}`}>{l[3]}</td>
                 </tr>
               ))}
             </tbody>

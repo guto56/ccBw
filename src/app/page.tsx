@@ -144,7 +144,7 @@ export default function Inicio() {
                       <tr key={a} className={`h-9 ${i % 2 === 0 ? "bg-faixa" : ""}`}>
                         <td className="px-3">{a}</td>
                         <td className="px-3 text-grafite-2">{b}</td>
-                        <td className={`px-3 whitespace-nowrap ${c.startsWith("Integral") ? "" : "font-medium text-ok"}`}>{c}</td>
+                        <td className={`px-3 whitespace-nowrap ${c.startsWith("Integral") ? "" : "font-medium text-ok-texto"}`}>{c}</td>
                       </tr>
                     ))}
                   </tbody>

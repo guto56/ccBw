@@ -128,7 +128,7 @@ export function PainelEdicao({ linha, cliente, aoFechar }: { linha: LinhaLote; c
           inputMode="numeric"
           autoFocus
           erro={estadoNcm && !estadoNcm.ok ? estadoNcm.motivo : null}
-          ajuda={estadoNcm?.ok ? estadoNcm.descricao : "8 dígitos, com ou sem pontos."}
+          ajuda={estadoNcm?.ok ? "NCM vigente." : "8 dígitos, com ou sem pontos."}
         />
         <CampoSelecao rotulo="cClassTrib" value={codigo} onChange={(e) => setCodigo(e.target.value)}>
           <option value="">{codigos ? "Escolha o código" : "Carregando a tabela oficial…"}</option>
@@ -143,6 +143,7 @@ export function PainelEdicao({ linha, cliente, aoFechar }: { linha: LinhaLote; c
           ))}
         </CampoSelecao>
       </div>
+      {estadoNcm?.ok && <p className="medida mt-2 text-tabela text-grafite-2">{estadoNcm.descricao}</p>}
       {escolhido && (
         <p className="medida mt-2 text-tabela text-grafite-2">
           {ROTULO_TRATAMENTO[escolhido.tratamento]} · redução IBS {escolhido.pRedIBS}% e CBS {escolhido.pRedCBS}%. {escolhido.nome}

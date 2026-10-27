@@ -19,7 +19,8 @@ const PARADAS = new Set(
     "a o as os de da do das dos e em no na nos nas para p c com sem por um uma ou que se sua seu suas seus " +
     "ao aos a classificado classificados classificada classificadas codigo codigos subposicao subposicoes posicao posicoes " +
     "ncm sh demais outros outras outro outra mesmo mesmos legislacao especifica conformidade requisitos relativos " +
-    "comumente denominado denominada tipo kg g gr ml l lt un und cx pct pc fd tp unid emb"
+    "comumente denominado denominada tipo kg g gr ml l lt un und cx pct pc fd tp unid emb " +
+    "vegetal vegetais animal animais natural naturais origem produto produtos demais residuos preparacoes"
   ).split(" "),
 );
 

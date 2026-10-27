@@ -13,7 +13,7 @@
   --faixa: #e3eee4;
   --grafite: #1e2733;
   --grafite-2: #4a5563; /* texto secundário, 7.4:1 sobre o papel */
-  --grafite-3: #66707d; /* rótulos pequenos, 4.9:1 sobre o papel */
+  --grafite-3: #5a6471; /* rótulos pequenos, 5.6:1 sobre o papel, 4.9:1 sobre a faixa */
   --linha: #c9d3cb; /* linhas de campo */
   --linha-forte: #8e9a92;
   --caneta: #1f3fb0;
@@ -21,6 +21,7 @@
   --caneta-suave: #e4e9f8;
   --sobre-caneta: #ffffff;
   --ok: #2e7a4e;
+  --ok-texto: #24663f; /* texto verde com contraste AA sobre a faixa */
   --ok-suave: #e1f0e6;
   --revisar: #a86a12;
   --revisar-texto: #8a560b; /* texto âmbar com contraste AA sobre faixa */
@@ -49,6 +50,7 @@
     --caneta-suave: #232d4a;
     --sobre-caneta: #0f1424;
     --ok: #6cc595;
+    --ok-texto: #74cc9c;
     --ok-suave: #1a3326;
     --revisar: #e3a64a;
     --revisar-texto: #e8b462;
@@ -77,6 +79,7 @@
   --caneta-suave: #232d4a;
   --sobre-caneta: #0f1424;
   --ok: #6cc595;
+  --ok-texto: #74cc9c;
   --ok-suave: #1a3326;
   --revisar: #e3a64a;
   --revisar-texto: #e8b462;
@@ -104,6 +107,7 @@
   --color-caneta-suave: var(--caneta-suave);
   --color-sobre-caneta: var(--sobre-caneta);
   --color-ok: var(--ok);
+  --color-ok-texto: var(--ok-texto);
   --color-ok-suave: var(--ok-suave);
   --color-revisar: var(--revisar);
   --color-revisar-texto: var(--revisar-texto);

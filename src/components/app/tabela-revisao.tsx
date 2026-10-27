@@ -18,8 +18,8 @@ import { PainelEdicao } from "./painel-edicao";
 const ALTURA_LINHA = 36;
 
 const COR_TRATAMENTO: Record<Tratamento, string> = {
-  zero: "text-ok font-medium",
-  reducao60: "text-ok font-medium",
+  zero: "text-ok-texto font-medium",
+  reducao60: "text-ok-texto font-medium",
   integral: "text-grafite",
   outro: "text-grafite-2",
 };
@@ -87,8 +87,6 @@ const Linha = memo(function Linha({ linha, indice, focada, expandida, editando, 
       data-indice={indice}
       tabIndex={focada ? 0 : -1}
       aria-selected={focada}
-      aria-expanded={expandida}
-      aria-controls={expandida ? idDetalhe : undefined}
       onFocus={() => aoFocar(indice)}
       onClick={(e) => {
         if ((e.target as HTMLElement).closest("button, a, input, select, textarea")) return;
@@ -389,7 +387,8 @@ export function TabelaRevisao({
     const ids = sugeridosNoFiltro.map((l) => l.produto.id);
     if (!ids.length) return;
     const agora = Date.now();
-    await db.classificacoes.where("produtoId").anyOf(ids).modify({ status: "aprovado", atualizadoEm: agora });
+    const linhasAprovadas = sugeridosNoFiltro.map((l) => ({ ...l.classificacao!, status: "aprovado" as const, atualizadoEm: agora }));
+    await db.classificacoes.bulkPut(linhasAprovadas);
     anunciar(`${ids.length} ${ids.length === 1 ? "item aprovado" : "itens aprovados"}.`);
   }
 

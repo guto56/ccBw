@@ -239,12 +239,12 @@ export function EnvioArquivos({ cliente }: { cliente: Cliente }) {
                 </>
               )}
             </p>
-            <ul className="mt-2 max-h-48 overflow-y-auto rounded-campo border border-linha text-tabela">
+            <ul tabIndex={0} aria-label="Arquivos lidos" className="mt-2 max-h-48 overflow-y-auto rounded-campo border border-linha text-tabela">
               {[...avisos, ...progresso.filter((p) => p.situacao !== "ignorado" && p.situacao !== "erro")].slice(0, 400).map((p, i) => (
-                <li key={p.arquivo} className={`flex items-center gap-2 px-3 py-1 ${i % 2 ? "" : "bg-faixa"}`}>
+                <li key={p.arquivo} className={`flex flex-wrap items-center gap-x-2 px-3 py-1 sm:flex-nowrap ${i % 2 ? "" : "bg-faixa"}`}>
                   <span className="shrink-0">{iconeSituacao(p.situacao)}</span>
                   <span className="codigo min-w-0 flex-1 truncate text-mini">{p.arquivo}</span>
-                  <span className={`shrink-0 text-mini ${p.situacao === "ok" ? "text-grafite-2" : p.situacao === "erro" ? "text-erro" : "text-revisar-texto"}`}>{p.mensagem}</span>
+                  <span className={`w-full pl-6 text-mini sm:w-auto sm:shrink-0 sm:pl-0 ${p.situacao === "ok" ? "text-grafite-2" : p.situacao === "erro" ? "text-erro" : "text-revisar-texto"}`}>{p.mensagem}</span>
                 </li>
               ))}
             </ul>

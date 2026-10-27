@@ -20,8 +20,8 @@ function useDias(): number | null {
 
 const ITENS: { filtro: Filtro; rotulo: string; chave: "integral" | "reducao60" | "zero" | "revisar" | "ncm_invalido"; cor: string }[] = [
   { filtro: "integral", rotulo: "Integral", chave: "integral", cor: "text-grafite" },
-  { filtro: "reducao60", rotulo: "Redução 60%", chave: "reducao60", cor: "text-ok" },
-  { filtro: "zero", rotulo: "Alíquota zero", chave: "zero", cor: "text-ok" },
+  { filtro: "reducao60", rotulo: "Redução 60%", chave: "reducao60", cor: "text-ok-texto" },
+  { filtro: "zero", rotulo: "Alíquota zero", chave: "zero", cor: "text-ok-texto" },
   { filtro: "revisar", rotulo: "Revisar", chave: "revisar", cor: "text-revisar-texto" },
   { filtro: "ncm_invalido", rotulo: "NCM inválido", chave: "ncm_invalido", cor: "text-erro" },
 ];
@@ -37,7 +37,7 @@ export function FaixaTopo() {
           <span className="codigo text-grafite">01/01/2027</span>
         </p>
         {resumo ? (
-          <nav aria-label="Resumo do lote e filtros" className="flex min-w-0 flex-1 flex-wrap items-center gap-x-1 gap-y-1">
+          <nav aria-label="Resumo do lote e filtros" className="-mx-1 flex w-full min-w-0 items-center gap-x-1 overflow-x-auto pb-0.5 md:mx-0 md:w-auto md:flex-1 md:flex-wrap md:overflow-visible md:pb-0">
             <span className="mr-2 hidden max-w-56 truncate text-tabela text-grafite-2 lg:inline" title={`${resumo.cliente} · ${resumo.nome}`}>
               {resumo.nome}
             </span>
@@ -50,7 +50,7 @@ export function FaixaTopo() {
                   type="button"
                   aria-pressed={ativo}
                   onClick={() => setFiltro(ativo ? "todos" : i.filtro)}
-                  className={`inline-flex h-9 items-center gap-1.5 rounded-campo border px-2.5 text-tabela transition-colors ${
+                  className={`inline-flex h-9 shrink-0 items-center gap-1.5 rounded-campo border px-2.5 text-tabela whitespace-nowrap transition-colors ${
                     ativo ? "border-caneta bg-caneta-suave text-grafite" : "border-transparent text-grafite-2 hover:border-linha"
                   }`}
                 >
@@ -62,7 +62,7 @@ export function FaixaTopo() {
               );
             })}
             {filtro !== "todos" && (
-              <button type="button" onClick={() => setFiltro("todos")} className="ml-1 h-9 px-2 text-tabela text-caneta underline">
+              <button type="button" onClick={() => setFiltro("todos")} className="ml-1 h-9 shrink-0 px-2 text-tabela whitespace-nowrap text-caneta underline">
                 Limpar filtro
               </button>
             )}

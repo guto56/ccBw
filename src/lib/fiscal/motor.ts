@@ -241,7 +241,9 @@ function primeiraClausula(item: string): string {
   const corte = n.search(
     / (classificad|da ncm|dos codigos|das subposicoes|do codigo|dos seguintes|em conformidade|comumente|mesmo|todos destinad|exceto|inclusive)/,
   );
-  return corte > 0 ? n.slice(0, corte) : n;
+  const clausula = corte > 0 ? n.slice(0, corte) : n;
+  // Só o primeiro termo da enumeração ("Calcário, casca de coco, ..." -> "calcário").
+  return normalizar(item.split(/[,;(]/)[0]).length < clausula.length ? normalizar(item.split(/[,;(]/)[0]) : clausula;
 }
 
 function ncmCitado(item: string, ncm: string): boolean {
