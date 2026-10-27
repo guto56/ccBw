@@ -1,0 +1,206 @@
+{
+  "versao": "2026-10-27",
+  "observacao": "Catálogo semente. Todas as teses estão em status rascunho e precisam de revisão por advogado de trânsito (ver LEGAL_REVIEW.md). O fundamento é sempre montado a partir de legal/excerpts.json (texto literal). Os campos entre chaves no texto_modelo são preenchidos pelo motor de regras com dados confirmados pelo usuário.",
+  "teses": [
+    {
+      "id": "T01_INTEMPESTIVIDADE_NA",
+      "titulo": "Notificação da autuação expedida depois do prazo de 30 dias",
+      "condicao_de_aplicacao": {
+        "regra": "R_INTEMPESTIVIDADE_NA",
+        "descricao": "Datas confirmadas pelo usuário mostram mais de 30 dias entre a data da infração e a data de expedição (ou postagem) da notificação da autuação."
+      },
+      "pecas": ["defesa_previa", "recurso_jari", "recurso_segunda_instancia"],
+      "fundamento": [
+        { "excerpt": "CTB_ART_281", "seletor": { "paragrafo": "1", "inciso": "II" } },
+        { "excerpt": "R918_ART_4", "seletor": { "caput": true } },
+        { "excerpt": "R918_ART_4", "seletor": { "paragrafo": "1" } },
+        { "excerpt": "R918_ART_30", "seletor": { "inciso": "I" } }
+      ],
+      "peso": 3,
+      "acessoria": false,
+      "texto_modelo": "A infração teria sido cometida em {data_infracao}. A notificação da autuação foi expedida em {data_expedicao}, {dias_expedicao} dias depois. O art. 281, § 1º, II, do CTB e o art. 4º da Resolução CONTRAN nº 918/2022 fixam o prazo máximo de 30 (trinta) dias, contados da data do cometimento da infração, para a expedição da notificação da autuação. Esgotado esse prazo sem a expedição, o auto de infração deve ser arquivado e seu registro julgado insubsistente.",
+      "pedido": "o arquivamento do auto de infração e o julgamento de insubsistência de seu registro, por expedição da notificação da autuação fora do prazo",
+      "status": "rascunho"
+    },
+    {
+      "id": "T02_ELEMENTO_OBRIGATORIO_AUSENTE",
+      "titulo": "Falta de elemento obrigatório do auto de infração",
+      "condicao_de_aplicacao": {
+        "regra": "R_ELEMENTO_AUSENTE",
+        "descricao": "O usuário confirmou que a notificação não traz um ou mais dados exigidos pelos incisos I, II, III ou V do art. 280 do CTB."
+      },
+      "pecas": ["defesa_previa", "recurso_jari", "recurso_segunda_instancia"],
+      "fundamento": [
+        { "excerpt": "CTB_ART_280", "seletor": { "caput": true } },
+        { "excerpt": "CTB_ART_280", "seletor": { "inciso": "I" } },
+        { "excerpt": "CTB_ART_280", "seletor": { "inciso": "II" } },
+        { "excerpt": "CTB_ART_280", "seletor": { "inciso": "III" } },
+        { "excerpt": "CTB_ART_280", "seletor": { "inciso": "V" } },
+        { "excerpt": "R918_ART_4", "seletor": { "caput": true } },
+        { "excerpt": "CTB_ART_281", "seletor": { "paragrafo": "1", "inciso": "I" } }
+      ],
+      "peso": 2,
+      "acessoria": false,
+      "texto_modelo": "A notificação recebida não informa {elementos_ausentes}. O art. 280 do CTB determina que esses dados constem do auto de infração, e o art. 4º da Resolução CONTRAN nº 918/2022 exige que a notificação da autuação traga os dados mínimos do art. 280 do CTB. Sem eles, o auto de infração é inconsistente ou irregular e deve ser arquivado, nos termos do art. 281, § 1º, I, do CTB.",
+      "pedido": "o arquivamento do auto de infração por inconsistência, diante da falta de elemento obrigatório",
+      "status": "rascunho"
+    },
+    {
+      "id": "T03_IDENTIFICACAO_VEICULO",
+      "titulo": "Dados do veículo na notificação divergem do documento do veículo",
+      "condicao_de_aplicacao": {
+        "regra": "R_DIVERGENCIA_VEICULO",
+        "descricao": "Placa, marca ou modelo informados na notificação diferem dos dados do CRLV informados pelo usuário."
+      },
+      "pecas": ["defesa_previa", "recurso_jari", "recurso_segunda_instancia"],
+      "fundamento": [
+        { "excerpt": "CTB_ART_280", "seletor": { "inciso": "III" } },
+        { "excerpt": "CTB_ART_281", "seletor": { "paragrafo": "1", "inciso": "I" } }
+      ],
+      "peso": 3,
+      "acessoria": false,
+      "texto_modelo": "A notificação identifica o veículo como {veiculo_notificacao}. O Certificado de Registro e Licenciamento do Veículo (CRLV) do requerente, anexo, registra {veiculo_crlv}. O art. 280, III, do CTB exige que o auto de infração traga os caracteres da placa, a marca e a espécie do veículo. A divergência torna o auto inconsistente ou irregular, o que impõe o seu arquivamento, nos termos do art. 281, § 1º, I, do CTB.",
+      "pedido": "o arquivamento do auto de infração por inconsistência na identificação do veículo",
+      "status": "rascunho"
+    },
+    {
+      "id": "T04_IMAGEM_NAO_COMPROVA",
+      "titulo": "A imagem não comprova a conduta autuada",
+      "condicao_de_aplicacao": {
+        "regra": "R_IMAGEM_INCONCLUSIVA",
+        "descricao": "O usuário confirmou, a partir da descrição factual da imagem, que ela não permite ver o fato essencial da infração (objeto na mão, cinto, placa ou condutor)."
+      },
+      "pecas": ["defesa_previa", "recurso_jari", "recurso_segunda_instancia"],
+      "fundamento": [
+        { "excerpt": "CTB_ART_280", "seletor": { "paragrafo": "2" } },
+        { "excerpt": "R918_ART_3", "seletor": { "paragrafo": "1", "inciso": "III" } },
+        { "excerpt": "R920_ART_5", "seletor": { "caput": true } }
+      ],
+      "peso": 2,
+      "acessoria": false,
+      "texto_modelo": "O registro de imagem que acompanha a autuação não permite verificar {fatos_nao_verificaveis}. O art. 280, § 2º, do CTB exige que a infração seja comprovada. Quando a autuação decorre de equipamento com registrador de imagem (art. 3º, § 1º, III, da Resolução CONTRAN nº 918/2022), é a imagem que comprova a conduta, e ela, no caso, não a demonstra.",
+      "pedido": "o arquivamento do auto de infração por falta de comprovação da conduta e, subsidiariamente, a apresentação do registro de imagem completo que fundamentou a autuação",
+      "status": "rascunho"
+    },
+    {
+      "id": "T05_ERRO_ENQUADRAMENTO",
+      "titulo": "Descrição, artigo, valor ou pontos não batem entre si",
+      "condicao_de_aplicacao": {
+        "regra": "R_INCOERENCIA_ENQUADRAMENTO",
+        "descricao": "A descrição da conduta não corresponde ao dispositivo indicado, ou o valor e a pontuação não correspondem à natureza da infração prevista no CTB."
+      },
+      "pecas": ["defesa_previa", "recurso_jari", "recurso_segunda_instancia"],
+      "fundamento": [
+        { "excerpt": "CTB_ART_281", "seletor": { "paragrafo": "1", "inciso": "I" } },
+        { "excerpt": "CTB_ART_258", "seletor": { "caput": true, "incisos": true } },
+        { "excerpt": "CTB_ART_259", "seletor": { "caput": true, "incisos": true } }
+      ],
+      "fundamento_variavel": "dispositivo_infracao",
+      "peso": 2,
+      "acessoria": false,
+      "texto_modelo": "A notificação descreve a conduta como \"{descricao_infracao}\" e indica como dispositivo {artigo_infracao}. {incoerencias} Essa contradição torna o auto de infração inconsistente, o que impõe o seu arquivamento, nos termos do art. 281, § 1º, I, do CTB.",
+      "pedido": "o arquivamento do auto de infração por inconsistência no enquadramento",
+      "status": "rascunho"
+    },
+    {
+      "id": "T06_AGENTE_NAO_IDENTIFICADO",
+      "titulo": "O auto não identifica o agente que referendou o registro do equipamento",
+      "condicao_de_aplicacao": {
+        "regra": "R_AGENTE_NAO_IDENTIFICADO",
+        "descricao": "A infração foi registrada por equipamento com imagem e o usuário confirmou que a notificação não identifica a autoridade ou o agente que referendou o registro."
+      },
+      "pecas": ["defesa_previa", "recurso_jari", "recurso_segunda_instancia"],
+      "fundamento": [
+        { "excerpt": "R918_ART_3", "seletor": { "paragrafo": "1", "inciso": "III" } },
+        { "excerpt": "R918_ART_3", "seletor": { "paragrafo": "3" } }
+      ],
+      "peso": 1,
+      "acessoria": true,
+      "texto_modelo": "A autuação decorre de registro feito por equipamento com registrador de imagem. O art. 3º, § 3º, da Resolução CONTRAN nº 918/2022 determina que esse registro seja referendado por autoridade de trânsito, ou seu agente, que será identificado no auto de infração. A notificação recebida não identifica quem referendou o registro.",
+      "pedido": "a demonstração de que o registro foi referendado por autoridade ou agente de trânsito identificado no auto, sob pena de arquivamento",
+      "status": "rascunho"
+    },
+    {
+      "id": "T07_MEIO_COMPROVACAO_NAO_INFORMADO",
+      "titulo": "A notificação não informa como a infração foi constatada",
+      "condicao_de_aplicacao": {
+        "regra": "R_MEIO_COMPROVACAO_NAO_INFORMADO",
+        "descricao": "A autuação foi feita a distância (câmera ou equipamento) e o usuário confirmou que a notificação não informa se foi por videomonitoramento ou por sistema automático não metrológico."
+      },
+      "pecas": ["defesa_previa", "recurso_jari", "recurso_segunda_instancia"],
+      "fundamento": [
+        { "excerpt": "R909_ART_2", "seletor": { "paragrafo": "unico" } },
+        { "excerpt": "R920_ART_7", "seletor": { "caput": true } }
+      ],
+      "peso": 1,
+      "acessoria": true,
+      "texto_modelo": "A notificação não informa a forma pela qual a infração foi constatada. Para a fiscalização por videomonitoramento, o parágrafo único do art. 2º da Resolução CONTRAN nº 909/2022 exige que o campo \"observação\" informe a forma de constatação. Para o sistema automático não metrológico, o art. 7º da Resolução CONTRAN nº 920/2022 exige que as notificações informem que a infração foi comprovada por esse sistema.",
+      "pedido": "a indicação do meio pelo qual a infração foi constatada, sob pena de arquivamento",
+      "status": "rascunho"
+    },
+    {
+      "id": "T08_CONFORMIDADE_INMETRO_SANMFT",
+      "titulo": "Falta de demonstração da avaliação de conformidade do sistema automático",
+      "condicao_de_aplicacao": {
+        "regra": "R_SANMFT_SEM_CONFORMIDADE",
+        "descricao": "A notificação informa que a infração foi comprovada por sistema automático não metrológico de fiscalização e não traz a identificação da avaliação de conformidade do modelo."
+      },
+      "pecas": ["defesa_previa", "recurso_jari", "recurso_segunda_instancia"],
+      "fundamento": [
+        { "excerpt": "R920_ART_3", "seletor": { "caput": true, "incisos": true } }
+      ],
+      "peso": 1,
+      "acessoria": true,
+      "texto_modelo": "A notificação informa que a infração foi comprovada por sistema automático não metrológico de fiscalização. O art. 3º, I, da Resolução CONTRAN nº 920/2022 exige que esse sistema tenha a conformidade de seu modelo avaliada pelo INMETRO ou por entidade por ele acreditada. A notificação não demonstra essa avaliação para o equipamento utilizado.",
+      "pedido": "a juntada da comprovação da avaliação de conformidade do modelo do sistema utilizado",
+      "status": "rascunho"
+    }
+  ],
+  "pecas": {
+    "defesa_previa": {
+      "titulo": "DEFESA PRÉVIA (DEFESA DA AUTUAÇÃO)",
+      "destinatario": "À Autoridade de Trânsito do(a) {orgao_autuador}",
+      "fundamento": [
+        { "excerpt": "CTB_ART_281A", "seletor": { "caput": true } },
+        { "excerpt": "R918_ART_4", "seletor": { "paragrafo": "2" } },
+        { "excerpt": "R918_ART_9", "seletor": { "paragrafo": "1" } }
+      ],
+      "pedido_final": "o acolhimento da defesa da autuação, com o cancelamento do auto de infração e o arquivamento de seu registro"
+    },
+    "recurso_jari": {
+      "titulo": "RECURSO EM PRIMEIRA INSTÂNCIA (JARI)",
+      "destinatario": "À Junta Administrativa de Recursos de Infrações (JARI) do(a) {orgao_autuador}",
+      "fundamento": [
+        { "excerpt": "CTB_ART_285", "seletor": { "caput": true } },
+        { "excerpt": "R918_ART_15", "seletor": { "caput": true } }
+      ],
+      "pedido_final": "o provimento do recurso, com o cancelamento da penalidade e o arquivamento do auto de infração"
+    },
+    "recurso_segunda_instancia": {
+      "titulo": "RECURSO EM SEGUNDA INSTÂNCIA",
+      "destinatario": "Ao órgão julgador de segunda instância competente (art. 289 do CTB), por intermédio do(a) {orgao_autuador}",
+      "fundamento": [
+        { "excerpt": "CTB_ART_288", "seletor": { "caput": true } },
+        { "excerpt": "CTB_ART_289", "seletor": { "caput": true, "incisos": true } },
+        { "excerpt": "R918_ART_16", "seletor": { "caput": true } }
+      ],
+      "pedido_final": "o provimento do recurso, com a reforma da decisão da JARI, o cancelamento da penalidade e o arquivamento do auto de infração"
+    }
+  },
+  "avisos": {
+    "desconto_sne": {
+      "fundamento": [
+        { "excerpt": "CTB_ART_284", "seletor": { "caput": true } },
+        { "excerpt": "CTB_ART_284", "seletor": { "paragrafo": "1" } },
+        { "excerpt": "CTB_ART_284", "seletor": { "paragrafo": "2" } },
+        { "excerpt": "R918_ART_21", "seletor": { "caput": true } }
+      ]
+    },
+    "contagem_prazo": {
+      "fundamento": [
+        { "excerpt": "R918_ART_29", "seletor": { "caput": true } },
+        { "excerpt": "R918_ART_29", "seletor": { "paragrafo": "unico" } }
+      ]
+    }
+  }
+}
