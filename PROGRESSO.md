@@ -196,15 +196,21 @@ Consequência: os dados ficam no navegador onde foram criados (ver limitações)
 
 ## Etapa 10: deploy
 
-- Branch `carimbo` enviada ao GitHub (guto56/ccBw).
-- **Bloqueado**: o conector da Vercel responde 403 "You don't have permission to create the project"
-  para criar projeto (API e vínculo com o Git) e para criar deployment. O time "guto's projects" não
-  tem nenhum projeto e o token do conector não tem permissão de criação. Não há Vercel CLI com token
-  neste ambiente. O E2E contra a URL publicada fica para depois do deploy (basta rodar
-  `E2E_BASE_URL=https://... npx playwright test`).
-- Para publicar: em vercel.com > Add New > Project > importar `guto56/ccBw`, branch `carimbo`,
-  framework Next.js, e cadastrar as variáveis `OPENROUTER_API_KEY`, `OPENROUTER_MODEL`,
-  `APP_PASSWORD`, `SESSION_SECRET` (mínimo 32 caracteres) e, opcional, `DATABASE_URL`.
+- Vercel: o conector responde 403 "You don't have permission to create the project" para criar
+  projeto, vincular o Git e criar deployment. Não publicado lá.
+- **Cloudflare (publicado)**: https://carimbo.hrycsngb42.workers.dev
+  - Adaptador OpenNext (`@opennextjs/cloudflare` 1.20.13, `wrangler.jsonc`, `open-next.config.ts`).
+  - Worker `carimbo` criado pela API; segredos `OPENROUTER_API_KEY`, `APP_PASSWORD` e
+    `SESSION_SECRET` gravados como secrets do Worker (fora do código e do repositório);
+    `OPENROUTER_MODEL` em `vars`.
+  - Workers Builds ligado ao GitHub `guto56/ccBw`, branch `carimbo`: cada push compila
+    (`npx opennextjs-cloudflare build`) e publica (`npx opennextjs-cloudflare deploy`).
+  - O plano grátis aceita Worker de até 3 MB comprimido. O primeiro build deu 3,7 MB; caiu para
+    2,6 MB separando os módulos de tabela (páginas que só mostram a versão não carregam mais o
+    NCM e os anexos), filtrando os anexos para os cClassTrib usados pelo motor e trocando a imagem
+    OG gerada por código (que embutia resvg, yoga e uma fonte) por um PNG estático gerado por ela.
+  - E2E contra a URL publicada: 7 de 7 cenários passando (fluxo das três fixtures, planilha,
+    login, telas claro/escuro em 1440 e 390 com axe, 5.000 itens classificados em 7,8 s).
 
 ## Custo de IA
 
@@ -224,5 +230,6 @@ repetidos entre clientes saem do cache.
   quem vende).
 - A NT 2025.002 v1.51 deixou a obrigatoriedade do grupo IBS/CBS para CRT 1 e 4 sem data; o contador
   da faixa usa 01/01/2027 (início do IBS/CBS para o Simples pela LC 214/2025), como pedido.
-- Limite de tentativas de login e cache sem `DATABASE_URL` vivem na memória de cada instância.
+- Limite de tentativas de login e cache sem `DATABASE_URL` vivem na memória de cada instância (na
+  Cloudflare, de cada isolate do Worker).
 - Cloudflare Workers AI não foi usado (sem token no ambiente e sem necessidade).
