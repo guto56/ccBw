@@ -152,6 +152,15 @@ def main():
             "sha256_fonte": meta["sha256_html"],
             "status": "baixado",
         })
+    # índice dos artigos existentes no CTB, para o motor apontar remissão a artigo inexistente
+    ctb_lines = cache[normas["CTB"]["fonte"]]
+    artigos = []
+    for line in ctb_lines:
+        m = re.match(r"^Art\.\s*(\d+(?:-[A-Z])?)[º°o.]?\s", line)
+        if m and m.group(1) not in artigos:
+            artigos.append(m.group(1))
+    json.dump({"fonte": "legal/sources/ctb_l9503compilado.txt", "gerado_por": "tools/legal/build_excerpts.py", "artigos": artigos},
+              open(os.path.join(LEGAL, "ctb_artigos.json"), "w", encoding="utf-8"), ensure_ascii=False)
     dst = os.path.join(LEGAL, "excerpts.json")
     json.dump(out, open(dst, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("excerpts:", len(out["excerpts"]), "->", os.path.relpath(dst, ROOT))
