@@ -1,0 +1,38 @@
+[
+  {
+    "id": "caso1",
+    "titulo_caso": "Intempestividade (notificação expedida 38 dias depois)",
+    "imagem": "fixture-celular-claro.jpg",
+    "dados": {
+      "auto": "EX-2026-000731", "placa": "EXE1A23", "marca_modelo": "VW/GOL 1.0", "especie": "PASSAGEIRO / AUTOMÓVEL",
+      "codigo": "EX01-0 (fictício)", "descricao": "Dirigir o veículo segurando ou manuseando telefone celular", "enquadramento": "Art. 252, parágrafo único, do CTB",
+      "gravidade": "Gravíssima", "pontos": "7", "valor": "R$ 293,47", "local": "Av. das Palmeiras, 1200, sentido centro", "data": "03/08/2026", "hora": "07:42",
+      "agente": "Matrícula 40213 (fictícia)", "equipamento": "Câmera VM-07 (fictícia)", "observacao": "Infração constatada por videomonitoramento.",
+      "expedicao": "10/09/2026", "postagem": "11/09/2026", "prazo": "16/11/2026"
+    }
+  },
+  {
+    "id": "caso2",
+    "titulo_caso": "Sem achados (cinto, tudo em ordem)",
+    "imagem": "fixture-cinto.jpg",
+    "dados": {
+      "auto": "EX-2026-004418", "placa": "EXE4B56", "marca_modelo": "FIAT/ARGO DRIVE", "especie": "PASSAGEIRO / AUTOMÓVEL",
+      "codigo": "EX02-0 (fictício)", "descricao": "Deixar o condutor de usar o cinto de segurança", "enquadramento": "Art. 167 do CTB",
+      "gravidade": "Grave", "pontos": "5", "valor": "R$ 195,23", "local": "Rua do Comércio, 85", "data": "05/10/2026", "hora": "14:10",
+      "agente": "Matrícula 51877 (fictícia)", "equipamento": "Câmera VM-12 (fictícia)", "observacao": "Infração constatada por videomonitoramento.",
+      "expedicao": "15/10/2026", "postagem": "16/10/2026", "prazo": "20/11/2026"
+    }
+  },
+  {
+    "id": "caso3",
+    "titulo_caso": "Celular com imagem ambígua (sistema automático, sem agente identificado)",
+    "imagem": "fixture-celular-ambiguo.jpg",
+    "dados": {
+      "auto": "EX-2026-009902", "placa": "EXE7C89", "marca_modelo": "HYUNDAI/HB20 1.0M", "especie": "PASSAGEIRO / AUTOMÓVEL",
+      "codigo": "EX01-0 (fictício)", "descricao": "Dirigir o veículo segurando ou manuseando telefone celular", "enquadramento": "Art. 252, parágrafo único, do CTB",
+      "gravidade": "Gravíssima", "pontos": "7", "valor": "R$ 293,47", "local": "Rodovia Exemplo, km 14, pista norte", "data": "28/09/2026", "hora": "21:17",
+      "agente": null, "equipamento": "Sistema nº 0042 (fictício)", "observacao": "Infração comprovada por sistema automático não metrológico de fiscalização.",
+      "expedicao": "09/10/2026", "postagem": "10/10/2026", "prazo": "24/11/2026"
+    }
+  }
+]

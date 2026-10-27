@@ -9,6 +9,8 @@ const app = new Hono<{ Bindings: Env }>();
 app.use("*", async (c, next) => {
   const started = Date.now();
   await next();
+  // respostas vindas de ASSETS.fetch têm headers imutáveis: copia antes de alterar
+  c.res = new Response(c.res.body, c.res);
   c.res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
   c.res.headers.set("X-Content-Type-Options", "nosniff");
   c.res.headers.set("Referrer-Policy", "no-referrer");
@@ -18,6 +20,14 @@ app.use("*", async (c, next) => {
 });
 
 app.get("/robots.txt", () => new Response("User-agent: *\nDisallow: /\n", { headers: { "Content-Type": "text/plain; charset=utf-8" } }));
+
+// Telas do app (React) saem de app.html; a landing é o index.html estático.
+for (const path of ["/enviar", "/c", "/frotas", "/admin", "/termos", "/privacidade"]) {
+  app.get(path, async (c) => {
+    const res = await c.env.ASSETS.fetch(new Request(new URL("/app", c.req.url)));
+    return new Response(res.body, { status: 200, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-cache" } });
+  });
+}
 
 app.route("/api", publicRoutes);
 app.route("/api", caseRoutes);

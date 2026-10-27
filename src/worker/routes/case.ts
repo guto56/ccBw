@@ -248,7 +248,7 @@ caseRoutes.post("/case/checkout", async (c) => {
       caseId: row.id,
       amountCents: amount,
       method,
-      returnUrl: `${c.env.PUBLIC_BASE_URL}/c#pagamento`,
+      returnUrl: `${c.env.PUBLIC_BASE_URL}/c?retorno=pagamento`,
       notificationUrl: `${c.env.PUBLIC_BASE_URL}/api/payments/mercadopago/webhook`,
     });
   } catch (e) {

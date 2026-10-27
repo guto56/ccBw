@@ -3,10 +3,266 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ContraMulta</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <title>ContraMulta · defesa de multa de trânsito</title>
+    <meta name="description" content="Envie a notificação da sua multa de trânsito. Mostramos de graça as falhas formais que encontrarmos. A defesa pronta para você assinar custa R$ 49." />
+    <meta name="theme-color" content="#000000" />
+    <meta property="og:title" content="ContraMulta: a IA te multou. Outra IA te defende." />
+    <meta property="og:description" content="Diagnóstico grátis de falhas formais na sua notificação de trânsito. Defesa pronta para assinar por R$ 49." />
+    <meta property="og:image" content="/img/og.jpg" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/fonts/young-serif.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/ss4-roman.woff2" as="font" type="font/woff2" crossorigin />
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      .hero { background: var(--field); color: var(--field-ink); }
+      .hero .muted { color: var(--field-muted); }
+      .hero .link:hover { color: #ff8a82; }
+      .door { display: block; text-decoration: none; color: inherit; transition: opacity 180ms ease; }
+      .doors:hover .door:not(:hover), .doors:focus-within .door:not(:focus-visible) { opacity: .55; }
+      .door figure { margin: 0; overflow: hidden; aspect-ratio: 3 / 4; background: #111; }
+      .door img { width: 100%; height: 100%; object-fit: cover; }
+      .frames { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 12px; }
+      .frames figure { margin: 0; }
+      .frames .lifted { grid-column: 1 / -1; }
+      @media (min-width: 1024px) {
+        .frames { grid-template-columns: 1.15fr 1fr 1fr; gap: 20px 12px; align-items: start; }
+        .frames .lifted { grid-column: 1; grid-row: 1 / span 3; }
+      }
+      .cols-names { columns: 1; column-gap: 40px; }
+      .cols-names p { break-inside: avoid; }
+      @media (min-width: 640px) { .cols-names { columns: 2; } }
+      .faq-cols { columns: 1; column-gap: 56px; }
+      .faq-cols p { break-inside: avoid; margin-bottom: 20px; }
+      @media (min-width: 1024px) {
+        .faq-cols { columns: 2; }
+      }
+      .check-out[data-state="tarde"] .verdict { color: var(--accent); }
+      .check-out[data-state="ok"] .verdict { color: var(--ok); }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/main.tsx"></script>
+    <div class="test-banner" role="note">Ambiente de testes<span class="hidden sm:inline">. Pagamento simulado e textos ainda sem revisão de advogado</span>.</div>
+
+    <header class="hero">
+      <nav class="wrap flex items-center justify-between gap-4 pt-6" aria-label="Principal">
+        <a href="/" class="font-display lead no-underline" aria-label="ContraMulta, início">ContraMulta</a>
+        <ul class="flex items-center gap-5 list-none m-0 p-0 small">
+          <li class="hidden sm:block"><a href="#como-funciona" class="no-underline hover:underline">Como funciona</a></li>
+          <li class="hidden sm:block"><a href="#preco" class="no-underline hover:underline">Preço</a></li>
+          <li><a href="/frotas" class="no-underline hover:underline">Frotas</a></li>
+        </ul>
+      </nav>
+
+      <div class="wrap pt-12 pb-20 sm:pt-16 sm:pb-24">
+        <div class="mx-auto text-center">
+          <h1 style="font-size: var(--step-display); line-height: 0.98">A IA te multou.<br />Outra IA te defende.</h1>
+        </div>
+        <p class="mx-auto mt-6 max-w-[54ch] text-center lead">Envie a foto da sua notificação de trânsito. Mostramos de graça as falhas formais que encontrarmos. A defesa pronta para você assinar custa R$&nbsp;49.</p>
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
+          <a class="btn" href="/enviar">Analisar minha multa</a>
+          <a class="link small" href="#o-que-conferimos">Ver o que conferimos</a>
+        </div>
+
+        <div class="doors mx-auto mt-12 grid max-w-[640px] grid-cols-2 gap-[14px] sm:gap-20">
+          <a class="door" href="#o-que-conferimos">
+            <figure><img class="drift" src="/img/porta-camera-560.webp" srcset="/img/porta-camera-336.webp 336w, /img/porta-camera-560.webp 560w" sizes="(min-width: 640px) 280px, 44vw" width="560" height="747" alt="Imagem noturna de câmera de fiscalização: um motorista com a mão perto do rosto, segurando algo que não dá para identificar." fetchpriority="high" /></figure>
+            <p class="mt-3 lead font-semibold">A câmera que te multou</p>
+            <p class="small muted">Ela viu um celular. A foto mostra isso?</p>
+          </a>
+          <a class="door" href="#preco">
+            <figure><img src="/img/porta-defesa-560.webp" srcset="/img/porta-defesa-336.webp 336w, /img/porta-defesa-560.webp 560w" sizes="(min-width: 640px) 280px, 44vw" width="560" height="747" alt="Mão assinando um documento impresso sobre uma mesa." /></figure>
+            <p class="mt-3 lead font-semibold">A defesa que você assina</p>
+            <p class="small muted">Fundamento copiado da lei. R$&nbsp;49.</p>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Como funciona: itinerário num recibo -->
+      <section id="como-funciona" class="bg-surface py-[var(--gap-section)]" aria-labelledby="h-como">
+        <div class="wrap grid gap-10 lg:grid-cols-12 lg:gap-6">
+          <div class="lg:col-span-5" data-reveal>
+            <h2 id="h-como" class="head">Como funciona</h2>
+            <p class="mt-6 max-w-[34ch]">Você não precisa entender de lei. Precisa da notificação em mãos e de alguns minutos.</p>
+            <p class="mt-4 max-w-[34ch]">Quem assina e entrega a defesa é você. Nós fazemos a parte chata: ler o papel, conferir prazos e montar o texto.</p>
+          </div>
+          <div class="lg:col-span-6 lg:col-start-7" data-reveal>
+            <div class="slip max-w-[480px] px-6 pt-6 pb-10 tabular small">
+              <p class="font-semibold">Agora</p>
+              <p class="leader mt-2"><span>Fotografe a notificação, frente e verso</span><span class="dots" aria-hidden="true"></span><span>1 min</span></p>
+              <p class="leader mt-1"><span>Confira os dados que lemos</span><span class="dots" aria-hidden="true"></span><span>2 min</span></p>
+              <p class="font-semibold mt-7">Na hora</p>
+              <p class="leader mt-2"><span>Peça cabível, prazo e falhas formais</span><span class="dots" aria-hidden="true"></span><span>grátis</span></p>
+              <p class="leader mt-1"><span>Conta do desconto por não recorrer</span><span class="dots" aria-hidden="true"></span><span>grátis</span></p>
+              <p class="font-semibold mt-7">Se valer a pena</p>
+              <p class="leader mt-2"><span>Pix ou cartão</span><span class="dots" aria-hidden="true"></span><span>R$ 49</span></p>
+              <p class="leader mt-1"><span>PDF, texto para formulário e lembrete</span><span class="dots" aria-hidden="true"></span><span>na hora</span></p>
+              <p class="font-semibold mt-7">Até o prazo</p>
+              <p class="leader mt-2"><span>Você assina e protocola no canal do órgão</span><span class="dots" aria-hidden="true"></span><span>você</span></p>
+              <p class="mt-7 -mx-6 flex min-h-[44px] items-center justify-between bg-ink px-6 text-bg"><span class="font-semibold">Sua defesa protocolada</span><span>antes do prazo</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- O que conferimos: sequência de recortes, um em destaque -->
+      <section id="o-que-conferimos" class="py-[var(--gap-section)]" aria-labelledby="h-conferimos">
+        <div class="wrap grid gap-10 lg:grid-cols-12 lg:gap-6">
+          <div class="lg:col-span-3" data-reveal>
+            <h2 id="h-conferimos" class="head">O que conferimos</h2>
+            <p class="mt-5 small">Os recortes são de uma notificação de exemplo, fictícia.</p>
+            <a class="link small mt-3 inline-block" href="/img/notificacao-exemplo-900.webp">Ver a notificação inteira</a>
+          </div>
+          <div class="min-w-0 lg:col-span-9" data-reveal>
+            <div class="frames">
+              <figure class="lifted"><img src="/img/notificacao-exemplo-480.webp" srcset="/img/notificacao-exemplo-480.webp 480w, /img/notificacao-exemplo-900.webp 900w" sizes="(min-width: 1024px) 420px, 92vw" width="480" height="521" alt="Notificação de autuação de exemplo, marcada como fictícia." loading="lazy" /><figcaption class="mt-2 flex flex-col gap-x-3 small sm:flex-row sm:justify-between"><span>A notificação</span><span class="muted">frente</span></figcaption></figure>
+              <figure><img src="/img/recorte-data-400.webp" srcset="/img/recorte-data-400.webp 400w, /img/recorte-data-800.webp 800w" sizes="(min-width: 1024px) 200px, 45vw" width="400" height="300" alt="Campo da data e hora da infração." loading="lazy" /><figcaption class="mt-2 flex flex-col gap-x-3 small sm:flex-row sm:justify-between"><span>Data da infração</span><span class="muted">03/08</span></figcaption></figure>
+              <figure><img src="/img/recorte-expedicao-400.webp" srcset="/img/recorte-expedicao-400.webp 400w, /img/recorte-expedicao-800.webp 800w" sizes="(min-width: 1024px) 200px, 45vw" width="400" height="300" alt="Campos de data de expedição e de postagem." loading="lazy" /><figcaption class="mt-2 flex flex-col gap-x-3 small sm:flex-row sm:justify-between"><span>Expedição</span><span class="muted">38 dias depois</span></figcaption></figure>
+              <figure><img src="/img/recorte-descricao-400.webp" srcset="/img/recorte-descricao-400.webp 400w, /img/recorte-descricao-800.webp 800w" sizes="(min-width: 1024px) 200px, 45vw" width="400" height="300" alt="Descrição da infração e enquadramento." loading="lazy" /><figcaption class="mt-2 flex flex-col gap-x-3 small sm:flex-row sm:justify-between"><span>Descrição e artigo</span><span class="muted">batem?</span></figcaption></figure>
+              <figure><img src="/img/recorte-agente-400.webp" srcset="/img/recorte-agente-400.webp 400w, /img/recorte-agente-800.webp 800w" sizes="(min-width: 1024px) 200px, 45vw" width="400" height="300" alt="Campos do agente autuador e do equipamento." loading="lazy" /><figcaption class="mt-2 flex flex-col gap-x-3 small sm:flex-row sm:justify-between"><span>Agente</span><span class="muted">identificado?</span></figcaption></figure>
+              <figure><img src="/img/recorte-observacao-400.webp" srcset="/img/recorte-observacao-400.webp 400w, /img/recorte-observacao-800.webp 800w" sizes="(min-width: 1024px) 200px, 45vw" width="400" height="300" alt="Campo de observação da notificação." loading="lazy" /><figcaption class="mt-2 flex flex-col gap-x-3 small sm:flex-row sm:justify-between"><span>Como foi registrada</span><span class="muted">está escrito?</span></figcaption></figure>
+              <figure><img src="/img/recorte-imagem-400.webp" srcset="/img/recorte-imagem-400.webp 400w, /img/recorte-imagem-800.webp 800w" sizes="(min-width: 1024px) 200px, 45vw" width="400" height="300" alt="Imagem do registro anexada à notificação." loading="lazy" /><figcaption class="mt-2 flex flex-col gap-x-3 small sm:flex-row sm:justify-between"><span>A foto</span><span class="muted">mostra o celular?</span></figcaption></figure>
+            </div>
+            <div class="mt-10 grid gap-6 sm:grid-cols-3 small">
+              <p><strong>Prazo.</strong> A notificação da autuação tem de ser expedida em até 30 dias da infração.</p>
+              <p><strong>Coerência.</strong> Descrição, artigo, valor e pontos têm de bater entre si.</p>
+              <p><strong>Prova.</strong> A imagem precisa mostrar o que a autuação descreve.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Elemento vivo: a conta do prazo de 30 dias -->
+        <div class="wrap mt-[clamp(72px,8vw,120px)] grid gap-8 lg:grid-cols-12 lg:gap-6">
+          <div class="lg:col-span-5" data-reveal>
+            <h3 class="head">Faça a conta do prazo</h3>
+            <p class="mt-5 max-w-[38ch]">O órgão tem 30 dias, a contar da infração, para expedir a notificação da autuação. Passou disso, o auto deve ser arquivado. As duas datas estão impressas na notificação.</p>
+          </div>
+          <form id="prazo" class="panel grid gap-5 sm:grid-cols-2 lg:col-span-6 lg:col-start-7" novalidate>
+            <div class="field"><label for="d-infracao">Data da infração</label><input class="input tabular" id="d-infracao" name="infracao" type="date" value="2026-08-03" required /></div>
+            <div class="field"><label for="d-expedicao">Data de expedição ou postagem</label><input class="input tabular" id="d-expedicao" name="expedicao" type="date" value="2026-09-10" required /></div>
+            <output id="prazo-out" class="check-out sm:col-span-2" for="d-infracao d-expedicao" aria-live="polite" data-state="tarde">
+              <span class="verdict block font-display" style="font-size: var(--step-head); line-height: 1.05">38 dias. Fora do prazo.</span>
+              <span class="mt-2 block">Expedida depois de 30 dias, a notificação dá motivo para pedir o arquivamento do auto.</span>
+            </output>
+          </form>
+        </div>
+      </section>
+
+      <!-- Quanto custa: recibo itemizado -->
+      <section id="preco" class="bg-surface py-[var(--gap-section)]" aria-labelledby="h-preco">
+        <div class="wrap grid gap-12 lg:grid-cols-12 lg:gap-6">
+          <div class="lg:col-span-6" data-reveal>
+            <h2 id="h-preco" class="head">Quanto custa</h2>
+            <p class="mt-6 max-w-[40ch]">O diagnóstico é grátis. Você só paga se quiser a peça pronta. Se não encontrarmos falha formal, dizemos isso antes, e você decide.</p>
+            <p class="mt-4 max-w-[40ch]">Para comparar: no Código de Trânsito, a multa gravíssima é de R$&nbsp;293,47 e soma 7 pontos na carteira.</p>
+            <p class="mt-4 max-w-[40ch]">Pagar sem recorrer pode sair mais barato. Quem aderiu ao Sistema de Notificação Eletrônica antes da notificação pode pagar 60% do valor se não apresentar defesa. O diagnóstico faz essa conta com o valor da sua multa.</p>
+            <a class="btn mt-8" href="/enviar">Analisar minha multa</a>
+          </div>
+          <div class="lg:col-span-5 lg:col-start-8" data-reveal>
+            <div class="slip mx-auto w-[86%] max-w-[420px] px-7 pt-7 pb-12 tabular small lg:mx-0 lg:w-full">
+              <p class="text-center lead font-semibold">ContraMulta</p>
+              <p class="mt-1 text-center small muted">uma notificação, uma peça</p>
+              <div class="mt-6 grid gap-[14px]">
+                <p class="flex justify-between gap-4"><span>Diagnóstico de falhas formais</span><span class="whitespace-nowrap">R$ 0,00</span></p>
+                <p class="flex justify-between gap-4"><span>Peça em PDF, pronta para assinar</span><span class="whitespace-nowrap">incluído</span></p>
+                <p class="flex justify-between gap-4"><span>Texto para formulário online</span><span class="whitespace-nowrap">incluído</span></p>
+                <p class="flex justify-between gap-4"><span>Lista de anexos e como protocolar</span><span class="whitespace-nowrap">incluído</span></p>
+                <p class="flex justify-between gap-4"><span>Lembrete do prazo no calendário</span><span class="whitespace-nowrap">incluído</span></p>
+              </div>
+              <div class="mt-8 h-1 bg-ink" aria-hidden="true"></div>
+              <p class="mt-10 flex items-baseline justify-between"><span>Total</span><span class="font-display head">R$ 49,00</span></p>
+              <p class="mt-2 text-right small muted">Pix ou cartão</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- De onde vem cada argumento: nomes em colunas -->
+      <section class="py-[var(--gap-section)]" aria-labelledby="h-fontes">
+        <div class="wrap grid gap-10 lg:grid-cols-12 lg:gap-6">
+          <div class="lg:col-span-4" data-reveal>
+            <h2 id="h-fontes" class="head">As fontes</h2>
+            <p class="mt-6 max-w-[34ch]">A IA lê a notificação e escreve só o relato dos fatos. O fundamento entra copiado da lei, palavra por palavra, e um verificador apaga qualquer citação que não esteja nesta lista.</p>
+          </div>
+          <div class="lg:col-span-8 lg:col-start-5" data-reveal>
+            <div class="cols-names lead">
+              <p class="muted">A lei</p>
+              <p>Código de Trânsito Brasileiro</p>
+              <p>Lei nº 9.503, de 1997</p>
+              <p>Arts. 280 e 281: o auto e seu arquivamento</p>
+              <p>Art. 281-A: o prazo da defesa</p>
+              <p>Art. 282: a notificação da penalidade</p>
+              <p>Art. 284: os descontos</p>
+              <p>Arts. 285, 288 e 289: os recursos</p>
+              <p class="muted mt-8">As regras do CONTRAN</p>
+              <p>Resolução nº 918, de 2022: autuação, notificação, defesa e recurso</p>
+              <p>Resolução nº 909, de 2022: videomonitoramento</p>
+              <p>Resolução nº 920, de 2022: sistemas automáticos</p>
+              <p class="muted mt-8">O que não usamos</p>
+              <p>Jurisprudência</p>
+              <p>A tese de que IA não é regulamentada</p>
+              <p>Fundamento escrito pela IA</p>
+              <p class="muted mt-8">Onde baixamos</p>
+              <p>Planalto</p>
+              <p>Diário Oficial da União</p>
+            </div>
+                      </div>
+        </div>
+      </section>
+
+      <!-- Transparência -->
+      <section class="bg-surface py-[var(--gap-section)]" aria-labelledby="h-nao">
+        <div class="wrap grid gap-10 lg:grid-cols-12 lg:gap-6">
+          <div class="lg:col-span-5" data-reveal>
+            <h2 id="h-nao" class="head">O que não fazemos</h2>
+            <img class="mt-10 w-full max-w-[460px]" src="/img/envelope-protocolo-560.webp" srcset="/img/envelope-protocolo-560.webp 560w, /img/envelope-protocolo-1024.webp 1024w" sizes="(min-width: 1024px) 460px, 92vw" width="560" height="420" alt="Mãos colocando um documento impresso num envelope pardo." loading="lazy" />
+          </div>
+          <div class="grid content-start gap-8 lg:col-span-6 lg:col-start-7" data-reveal>
+            <p class="lead"><strong>Não garantimos que a multa será anulada.</strong> Quem decide é o órgão de trânsito.</p>
+            <p class="lead"><strong>Não protocolamos por você.</strong> Você assina e entrega pelo canal indicado na notificação.</p>
+            <p class="lead"><strong>Não somos escritório de advocacia</strong> e não damos consultoria jurídica. Para um caso complexo, procure um advogado de trânsito.</p>
+            <p class="lead"><strong>Não somos órgão público.</strong> Não temos ligação com DETRAN, prefeituras ou polícias.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Perguntas: respostas como texto corrido -->
+      <section class="py-[var(--gap-section)]" aria-labelledby="h-faq">
+        <div class="wrap grid gap-10 lg:grid-cols-12 lg:gap-6">
+          <div class="lg:col-span-3" data-reveal>
+            <h2 id="h-faq" class="head">Perguntas</h2>
+            <img class="mt-10 hidden w-full lg:block" src="/img/foto-celular-560.webp" width="560" height="420" alt="Mãos fotografando uma carta impressa com o celular." loading="lazy" />
+          </div>
+          <div class="faq-cols lg:col-span-8 lg:col-start-5">
+            <p><strong>Que multas vocês analisam?</strong> Qualquer notificação de autuação ou de penalidade de trânsito. O foco são as multas por câmera, de celular ao volante e de cinto, mas o diagnóstico vale para outras infrações.</p>
+            <p><strong>O diagnóstico é mesmo grátis?</strong> Sim. Você vê a peça cabível, o prazo, as falhas encontradas e a força da defesa sem pagar nada.</p>
+            <p><strong>E se não houver falha?</strong> Dizemos com todas as letras. Nesse caso, pagar com desconto pode sair mais barato do que recorrer. Você ainda pode comprar a peça, mas avisamos antes.</p>
+            <p><strong>O que é a força da defesa?</strong> Uma nota (fraca, moderada ou forte) calculada por regra, pelo peso das falhas encontradas. Não é chance de ganhar e não é opinião da IA.</p>
+            <p><strong>Qual é o prazo?</strong> Está impresso na notificação. Se o prazo já passou, não vendemos a peça e explicamos o que ainda dá para fazer.</p>
+            <p><strong>Defesa prévia ou recurso?</strong> Depende do papel que chegou. Notificação de autuação: defesa prévia. Notificação de penalidade: recurso à JARI. Se a JARI negou: recurso em segunda instância. O diagnóstico indica qual.</p>
+            <p><strong>A IA escreve a defesa?</strong> Ela lê a notificação, descreve a foto e escreve o relato dos fatos. O fundamento jurídico vem de um catálogo fixo, copiado da lei.</p>
+            <p><strong>Preciso de advogado?</strong> O ContraMulta prepara a peça para você mesmo assinar e protocolar. Não damos consultoria jurídica. Se o seu caso tem detalhes que o formulário não cobre, procure um advogado de trânsito.</p>
+            <p><strong>O que acontece com meus dados?</strong> Servem só para o diagnóstico e a peça. As fotos e os dados pessoais são apagados em 30 dias. CPF e CNH ficam cifrados e nunca aparecem em registros.</p>
+            <p><strong>Como recebo a peça?</strong> Na hora, pelo seu link: PDF, texto para colar em formulário online, lista de anexos, passo a passo do protocolo e lembrete do prazo para o calendário.</p>
+            <p><strong>E se eu perder o link?</strong> O link é a única chave do seu caso. Não pedimos senha nem cadastro, então guarde o link num lugar seguro.</p>
+            <p><strong>Vocês têm ligação com o DETRAN?</strong> Não. O ContraMulta é um serviço privado e não fala em nome de nenhum órgão.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="wrap pb-8 pt-[20svh]">
+      <div class="grid gap-2 small sm:grid-cols-[1fr_auto_1fr] sm:items-baseline sm:gap-6">
+        <p class="muted">ContraMulta, defesa de multa de trânsito</p>
+        <p class="flex flex-wrap gap-6"><a href="/frotas">Frotas</a><a href="/termos">Termos de uso</a><a href="/privacidade">Privacidade</a></p>
+        <p class="muted sm:text-right">2026. Imagens geradas com IA (FLUX.2 klein 4B).</p>
+      </div>
+    </footer>
+
+    <script type="module" src="./landing.ts"></script>
   </body>
 </html>
