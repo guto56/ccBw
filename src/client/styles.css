@@ -247,6 +247,14 @@
     font-size: var(--step-body);
     margin-bottom: 6px;
   }
+  .field label.file-button {
+    display: inline-flex;
+    margin-bottom: 0;
+  }
+  .file-input:focus-visible + .file-button {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+  }
   .field .hint {
     font-size: var(--step-small);
     color: var(--muted);

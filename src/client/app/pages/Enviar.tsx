@@ -44,18 +44,27 @@ function useTurnstile(siteKey: string | undefined) {
 const ACCEPT = "image/jpeg,image/png,image/webp,application/pdf";
 
 function FilePicker(props: { id: string; label: string; hint: string; multiple?: boolean; files: File[]; onChange: (f: File[]) => void }) {
+  const n = props.files.length;
   return (
     <Field id={props.id} label={props.label} hint={props.hint}>
-      <input
-        id={props.id}
-        className="input py-3"
-        type="file"
-        accept={ACCEPT}
-        multiple={props.multiple}
-        aria-describedby={`${props.id}-hint`}
-        onChange={(e) => props.onChange([...(e.target.files ?? [])])}
-      />
-      {props.files.length > 0 && (
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+        <input
+          id={props.id}
+          className="file-input sr-only"
+          type="file"
+          accept={ACCEPT}
+          multiple={props.multiple}
+          aria-describedby={`${props.id}-hint`}
+          onChange={(e) => props.onChange([...(e.target.files ?? [])])}
+        />
+        <label htmlFor={props.id} aria-hidden="true" className="btn btn-ghost file-button">
+          {n ? "Trocar" : props.multiple ? "Escolher fotos ou PDF" : "Escolher arquivo"}
+        </label>
+        <span className="small muted" aria-live="polite">
+          {n ? `${n} ${n === 1 ? "arquivo escolhido" : "arquivos escolhidos"}` : "Nenhum arquivo escolhido"}
+        </span>
+      </div>
+      {n > 0 && (
         <ul className="mt-3 list-none p-0 small">
           {props.files.map((f, i) => (
             <li key={i} className="flex justify-between gap-4 py-1">

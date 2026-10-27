@@ -119,8 +119,8 @@ export function Diagnostico(props: { d: Diagnosis; priceCents: number; payment: 
 
   return (
     <div className="grid gap-16">
-      <section aria-labelledby="h-diag" className="grid gap-10 lg:grid-cols-12 lg:gap-6">
-        <div className="lg:col-span-7">
+      <div className="grid gap-12 lg:grid-cols-12 lg:gap-x-6">
+        <section aria-labelledby="h-diag" className="lg:col-span-7 lg:row-start-1">
           <h1 id="h-diag" className="app-title">Seu diagnóstico</h1>
           {d.peca ? (
             <>
@@ -136,73 +136,73 @@ export function Diagnostico(props: { d: Diagnosis; priceCents: number; payment: 
           <button type="button" className="link small mt-6 border-0 bg-transparent p-0" onClick={props.onEdit}>
             Corrigir os dados
           </button>
-        </div>
-        <div className="lg:col-span-4 lg:col-start-9">
-          {d.prazo.efetivo ? (
-            <>
-              <p className="small muted">Prazo final: {formatDateBR(d.prazo.efetivo)}{d.prazo.prorrogado_fim_de_semana ? ` (era ${formatDateBR(d.prazo.final)}, fim de semana)` : ""}</p>
-              {d.prazo.vencido ? <p className="mt-2 kpi" style={{ color: "var(--accent)" }}>Prazo encerrado</p> : <Countdown deadline={d.prazo.efetivo} />}
-            </>
-          ) : (
-            <p className="small muted">Prazo não informado. Confira a data na notificação.</p>
-          )}
-        </div>
-      </section>
-
-      {d.bloqueios.length > 0 && (
-        <section aria-labelledby="h-bloq" className="panel" style={{ borderLeft: "6px solid var(--accent)" }}>
-          <h2 id="h-bloq" className="app-title">Não vendemos esta peça</h2>
-          <ul className="mt-6 grid gap-6 list-none p-0">
-            {d.bloqueios.map((b) => (
-              <li key={b.rule_id}>
-                <p className="lead font-semibold">{b.titulo}</p>
-                <p className="mt-2 max-w-[60ch]">{b.detalhe}</p>
-                <Citations items={b.citacoes} />
-              </li>
-            ))}
-          </ul>
         </section>
-      )}
 
-      <section aria-labelledby="h-forca" className="grid gap-8 lg:grid-cols-12 lg:gap-6">
-        <div className="lg:col-span-4">
-          <h2 id="h-forca" className="small muted font-normal" style={{ fontFamily: "var(--font-text)", letterSpacing: 0 }}>
-            Força da defesa
-          </h2>
-          <p className="mt-2 kpi" style={{ color: d.forca.nivel === "forte" ? "var(--ok)" : "var(--ink)" }}>
-            {LEVEL[d.forca.nivel]}
-          </p>
-        </div>
-        <div className="lg:col-span-7 lg:col-start-6">
-          <p className="lead">{d.forca.explicacao}</p>
-          {d.forca.composicao.length > 0 && (
-            <ul className="mt-6 grid gap-2 list-none p-0">
-              {d.forca.composicao.map((c) => (
-                <li key={c.thesis_id} className="flex justify-between gap-6">
-                  <span>{c.titulo}</span>
-                  <span className="muted tabular whitespace-nowrap">{c.acessoria ? "complementar" : `peso ${c.peso}`}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </section>
-
-      <section aria-labelledby="h-achados">
-        <h2 id="h-achados" className="app-title">{d.sem_achados ? "Não encontramos falha formal" : `O que encontramos (${d.achados.length})`}</h2>
-        {d.sem_achados ? (
-          <div className="mt-6 max-w-[62ch] grid gap-4">
-            <p className="lead">Conferimos sua notificação e não achamos falha formal que sustente uma defesa.</p>
-            <p>Nesse caso, avalie pagar com desconto: veja o aviso abaixo. Você ainda pode comprar a peça, mas ela vai discutir só os fatos, sem uma falha objetiva da autuação.</p>
+        <aside className="grid content-start gap-10 self-start lg:sticky lg:top-16 lg:col-span-4 lg:col-start-9 lg:row-span-2 lg:row-start-1">
+          <div>
+            {d.prazo.efetivo ? (
+              <>
+                <p className="small muted">Prazo final: {formatDateBR(d.prazo.efetivo)}{d.prazo.prorrogado_fim_de_semana ? ` (era ${formatDateBR(d.prazo.final)}, fim de semana)` : ""}</p>
+                {d.prazo.vencido ? <p className="mt-2 kpi" style={{ color: "var(--accent)" }}>Prazo encerrado</p> : <Countdown deadline={d.prazo.efetivo} />}
+              </>
+            ) : (
+              <p className="small muted">Prazo não informado. Confira a data na notificação.</p>
+            )}
           </div>
-        ) : (
-          <ul className="mt-8 grid gap-4 list-none p-0">
-            {d.achados.map((f) => (
-              <FindingItem key={f.rule_id} f={f} />
-            ))}
-          </ul>
-        )}
-      </section>
+          <section aria-labelledby="h-forca">
+            <h2 id="h-forca" className="small muted font-normal" style={{ fontFamily: "var(--font-text)", letterSpacing: 0 }}>
+              Força da defesa
+            </h2>
+            <p className="mt-2 kpi" style={{ color: d.forca.nivel === "forte" ? "var(--ok)" : "var(--ink)" }}>
+              {LEVEL[d.forca.nivel]}
+            </p>
+            <p className="mt-4 small">{d.forca.explicacao}</p>
+            {d.forca.composicao.length > 0 && (
+              <ul className="mt-4 grid gap-2 list-none p-0 small">
+                {d.forca.composicao.map((c) => (
+                  <li key={c.thesis_id} className="flex justify-between gap-6">
+                    <span>{c.titulo}</span>
+                    <span className="muted tabular whitespace-nowrap">{c.acessoria ? "complementar" : `peso ${c.peso}`}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+        </aside>
+
+        <div className="grid content-start gap-12 lg:col-span-7 lg:row-start-2">
+          {d.bloqueios.length > 0 && (
+            <section aria-labelledby="h-bloq" className="panel" style={{ borderLeft: "6px solid var(--accent)" }}>
+              <h2 id="h-bloq" className="app-title">Não vendemos esta peça</h2>
+              <ul className="mt-6 grid gap-6 list-none p-0">
+                {d.bloqueios.map((b) => (
+                  <li key={b.rule_id}>
+                    <p className="lead font-semibold">{b.titulo}</p>
+                    <p className="mt-2 max-w-[60ch]">{b.detalhe}</p>
+                    <Citations items={b.citacoes} />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          <section aria-labelledby="h-achados">
+            <h2 id="h-achados" className="app-title">{d.sem_achados ? "Não encontramos falha formal" : `O que encontramos (${d.achados.length})`}</h2>
+            {d.sem_achados ? (
+              <div className="mt-6 max-w-[62ch] grid gap-4">
+                <p className="lead">Conferimos sua notificação e não achamos falha formal que sustente uma defesa.</p>
+                <p>Nesse caso, avalie pagar com desconto: veja o aviso abaixo. Você ainda pode comprar a peça, mas ela vai discutir só os fatos, sem uma falha objetiva da autuação.</p>
+              </div>
+            ) : (
+              <ul className="mt-6 grid gap-4 list-none p-0">
+                {d.achados.map((f) => (
+                  <FindingItem key={f.rule_id} f={f} />
+                ))}
+              </ul>
+            )}
+          </section>
+        </div>
+      </div>
 
       <section aria-labelledby="h-avisos" className="grid gap-4">
         <h2 id="h-avisos" className="app-title">Antes de decidir</h2>

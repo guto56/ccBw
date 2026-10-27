@@ -54,13 +54,18 @@ export function Shell({ children, wide = false }: { children: ReactNode; wide?: 
 export function Stages({ current }: { current: number }) {
   const names = ["Envio", "Conferência", "Diagnóstico", "Pagamento", "Peça"];
   return (
-    <ol aria-label="Etapas" className="m-0 flex list-none flex-wrap gap-x-5 gap-y-1 p-0 small">
-      {names.map((n, i) => (
-        <li key={n} aria-current={i === current ? "step" : undefined} className={i === current ? "font-semibold text-ink" : i < current ? "text-ink" : "muted"}>
-          {n}
-        </li>
-      ))}
-    </ol>
+    <>
+      <p className="m-0 small sm:hidden">
+        Etapa {current + 1} de {names.length}: <span className="font-semibold">{names[current]}</span>
+      </p>
+      <ol aria-label="Etapas" className="m-0 hidden list-none flex-wrap gap-x-5 gap-y-1 p-0 small sm:flex">
+        {names.map((n, i) => (
+          <li key={n} aria-current={i === current ? "step" : undefined} className={i === current ? "font-semibold text-ink" : i < current ? "text-ink" : "muted"}>
+            {n}
+          </li>
+        ))}
+      </ol>
+    </>
   );
 }
 
