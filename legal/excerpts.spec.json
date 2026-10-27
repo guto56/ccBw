@@ -1,0 +1,94 @@
+{
+  "normas": [
+    {
+      "id": "CTB",
+      "nome": "Lei nº 9.503, de 23 de setembro de 1997 (Código de Trânsito Brasileiro)",
+      "nome_curto": "CTB",
+      "fonte": "ctb_l9503compilado",
+      "tipo": "lei",
+      "numero": "9.503",
+      "ano": "1997",
+      "status": "baixado"
+    },
+    {
+      "id": "RES_CONTRAN_918_2022",
+      "nome": "Resolução CONTRAN nº 918, de 28 de março de 2022",
+      "nome_curto": "Resolução CONTRAN nº 918/2022",
+      "fonte": "contran_res918_2022",
+      "tipo": "resolucao",
+      "numero": "918",
+      "ano": "2022",
+      "status": "baixado",
+      "alterada_por": ["Resolução CONTRAN nº 991, de 19 de abril de 2023 (arts. 25 e 27, não usados nas teses)"]
+    },
+    {
+      "id": "RES_CONTRAN_909_2022",
+      "nome": "Resolução CONTRAN nº 909, de 28 de março de 2022",
+      "nome_curto": "Resolução CONTRAN nº 909/2022",
+      "fonte": "contran_res909_2022",
+      "tipo": "resolucao",
+      "numero": "909",
+      "ano": "2022",
+      "status": "baixado"
+    },
+    {
+      "id": "RES_CONTRAN_920_2022",
+      "nome": "Resolução CONTRAN nº 920, de 28 de março de 2022",
+      "nome_curto": "Resolução CONTRAN nº 920/2022",
+      "fonte": "contran_res920_2022",
+      "tipo": "resolucao",
+      "numero": "920",
+      "ano": "2022",
+      "status": "baixado"
+    },
+    {
+      "id": "RES_CONTRAN_985_2022",
+      "nome": "Resolução CONTRAN nº 985, de 15 de dezembro de 2022 (Manual Brasileiro de Fiscalização de Trânsito)",
+      "nome_curto": "Resolução CONTRAN nº 985/2022 (MBFT)",
+      "fonte": "contran_res985_2022",
+      "tipo": "resolucao",
+      "numero": "985",
+      "ano": "2022",
+      "status": "PENDENTE",
+      "motivo_pendencia": "O Anexo (fichas e tabela de códigos de infração) só é publicado em gov.br/transportes, que bloqueia download automatizado com captcha. O texto da resolução no DOU não contém o Anexo. Não usar até download manual e conferência."
+    }
+  ],
+  "excerpts": [
+    { "id": "CTB_ART_65", "norma": "CTB", "artigo": "65", "start": "^Art\\. 65\\.", "end": "^Art\\. 66\\." },
+    { "id": "CTB_ART_167", "norma": "CTB", "artigo": "167", "start": "^Art\\. 167\\.", "end": "^Art\\. 168\\." },
+    { "id": "CTB_ART_252", "norma": "CTB", "artigo": "252", "start": "^Art\\. 252\\.", "end": "^Art\\. 253\\." },
+    { "id": "CTB_ART_258", "norma": "CTB", "artigo": "258", "start": "^Art\\. 258\\.", "end": "^Art\\. 259\\." },
+    { "id": "CTB_ART_259", "norma": "CTB", "artigo": "259", "start": "^Art\\. 259\\.", "end": "^Art\\. 260\\." },
+    { "id": "CTB_ART_280", "norma": "CTB", "artigo": "280", "start": "^Art\\. 280\\.", "end": "^Seção II" },
+    { "id": "CTB_ART_281", "norma": "CTB", "artigo": "281", "start": "^Art\\. 281\\.", "end": "^Art\\. 281-A\\." },
+    { "id": "CTB_ART_281A", "norma": "CTB", "artigo": "281-A", "start": "^Art\\. 281-A\\.", "end": "^Art\\. 282\\." },
+    { "id": "CTB_ART_282", "norma": "CTB", "artigo": "282", "start": "^Art\\. 282\\.", "end": "^Art\\. 282-A\\." },
+    { "id": "CTB_ART_282A", "norma": "CTB", "artigo": "282-A", "start": "^Art\\. 282-A\\.", "end": "^Art\\. 283\\." },
+    { "id": "CTB_ART_284", "norma": "CTB", "artigo": "284", "start": "^Art\\. 284\\.", "end": "^Art\\. 285\\." },
+    { "id": "CTB_ART_285", "norma": "CTB", "artigo": "285", "start": "^Art\\. 285\\.", "end": "^Art\\. 286\\." },
+    { "id": "CTB_ART_286", "norma": "CTB", "artigo": "286", "start": "^Art\\. 286\\.", "end": "^Art\\. 287\\." },
+    { "id": "CTB_ART_287", "norma": "CTB", "artigo": "287", "start": "^Art\\. 287\\.", "end": "^Art\\. 288\\." },
+    { "id": "CTB_ART_288", "norma": "CTB", "artigo": "288", "start": "^Art\\. 288\\.", "end": "^Art\\. 289\\." },
+    { "id": "CTB_ART_289", "norma": "CTB", "artigo": "289", "start": "^Art\\. 289\\.", "end": "^Art\\. 289-A\\." },
+
+    { "id": "R918_ART_2", "norma": "RES_CONTRAN_918_2022", "artigo": "2", "start": "^Art\\. 2º", "end": "^Art\\. 3º" },
+    { "id": "R918_ART_3", "norma": "RES_CONTRAN_918_2022", "artigo": "3", "start": "^Art\\. 3º", "end": "^CAPÍTULO II$" },
+    { "id": "R918_ART_4", "norma": "RES_CONTRAN_918_2022", "artigo": "4", "start": "^Art\\. 4º", "end": "^Seção I$" },
+    { "id": "R918_ART_9", "norma": "RES_CONTRAN_918_2022", "artigo": "9", "start": "^Art\\. 9º", "end": "^CAPÍTULO III$" },
+    { "id": "R918_ART_12", "norma": "RES_CONTRAN_918_2022", "artigo": "12", "start": "^Art\\. 12\\.", "end": "^Art\\. 13\\." },
+    { "id": "R918_ART_15", "norma": "RES_CONTRAN_918_2022", "artigo": "15", "start": "^Art\\. 15\\.", "end": "^Art\\. 16\\." },
+    { "id": "R918_ART_16", "norma": "RES_CONTRAN_918_2022", "artigo": "16", "start": "^Art\\. 16\\.", "end": "^Art\\. 17\\." },
+    { "id": "R918_ART_21", "norma": "RES_CONTRAN_918_2022", "artigo": "21", "start": "^Art\\. 21\\.", "end": "^Art\\. 22\\." },
+    { "id": "R918_ART_29", "norma": "RES_CONTRAN_918_2022", "artigo": "29", "start": "^Art\\. 29\\.", "end": "^Art 30\\." },
+    { "id": "R918_ART_30", "norma": "RES_CONTRAN_918_2022", "artigo": "30", "start": "^Art 30\\.", "end": "^Art\\. 31\\." },
+
+    { "id": "R909_ART_2", "norma": "RES_CONTRAN_909_2022", "artigo": "2", "start": "^Art\\. 2º", "end": "^Art\\. 3º" },
+    { "id": "R909_ART_3", "norma": "RES_CONTRAN_909_2022", "artigo": "3", "start": "^Art\\. 3º", "end": "^Art\\. 4º" },
+
+    { "id": "R920_ART_2", "norma": "RES_CONTRAN_920_2022", "artigo": "2", "start": "^Art\\. 2º", "end": "^Art\\. 3º" },
+    { "id": "R920_ART_3", "norma": "RES_CONTRAN_920_2022", "artigo": "3", "start": "^Art\\. 3º", "end": "^Art\\. 4º" },
+    { "id": "R920_ART_5", "norma": "RES_CONTRAN_920_2022", "artigo": "5", "start": "^Art\\. 5º", "end": "^Art\\. 6º" },
+    { "id": "R920_ART_6", "norma": "RES_CONTRAN_920_2022", "artigo": "6", "start": "^Art\\. 6º", "end": "^Art\\. 7º" },
+    { "id": "R920_ART_7", "norma": "RES_CONTRAN_920_2022", "artigo": "7", "start": "^Art\\. 7º", "end": "^Art\\. 8º" }
+  ]
+}

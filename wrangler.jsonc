@@ -1,0 +1,45 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "contramulta",
+  "main": "src/worker/index.ts",
+  "compatibility_date": "2026-10-27",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "assets": {
+    "directory": "./dist/client",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*", "/robots.txt"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "contramulta",
+      "database_id": "3b38b2bf-2e76-4ed3-8269-dab813e5710e",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [
+    { "binding": "UPLOADS", "bucket_name": "contramulta-uploads" }
+  ],
+  "triggers": { "crons": ["17 6 * * *"] },
+  "observability": {
+    "enabled": true,
+    "traces": { "enabled": true }
+  },
+  "secrets": {
+    "required": ["OPENROUTER_API_KEY", "ADMIN_TOKEN", "DATA_KEY", "TURNSTILE_SECRET_KEY"]
+  },
+  "vars": {
+    "APP_ENV": "test",
+    "PUBLIC_BASE_URL": "https://contramulta.hrycsngb42.workers.dev",
+    "PRICE_CENTS": "4900",
+    "PAYMENT_PROVIDER": "mock",
+    "MODEL_VISION": "anthropic/claude-haiku-5.5",
+    "MODEL_REASONING": "anthropic/claude-sonnet-5.5",
+    "MODEL_VISION_ACCEPTS_PDF": "true",
+    "LLM_TIMEOUT_MS": "60000",
+    "TURNSTILE_SITE_KEY": "1x00000000000000000000AA",
+    "RETENTION_DAYS": "30"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "contramulta",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev:client": "vite",
+    "build:client": "vite build",
+    "build:worker": "wrangler deploy --dry-run --outdir dist/worker",
+    "build": "npm run build:legal && npm run build:client && npm run build:worker",
+    "build:legal": "python3 -I tools/legal/build_excerpts.py",
+    "dev": "npm run build:client && wrangler dev",
+    "test": "vitest run",
+    "typecheck": "npm run types && tsc --noEmit -p tsconfig.worker.json && tsc --noEmit -p tsconfig.client.json",
+    "db:migrate:local": "wrangler d1 migrations apply contramulta --local",
+    "types": "wrangler types --strict-vars=false src/worker/worker-configuration.d.ts"
+  },
+  "dependencies": {
+    "@pdf-lib/fontkit": "1.1.1",
+    "hono": "4.13.14",
+    "pdf-lib": "1.17.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "6.1.2",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3",
+    "vite": "8.3.5",
+    "vitest": "5.0.5",
+    "wrangler": "4.153.0"
+  }
+}

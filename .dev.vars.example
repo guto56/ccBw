@@ -1,0 +1,9 @@
+# Copie para .dev.vars (ignorado pelo git) e preencha.
+OPENROUTER_API_KEY=
+ADMIN_TOKEN=
+DATA_KEY=
+# Chave secreta de TESTE oficial do Turnstile (sempre aprova)
+TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA
+# Opcional (PAYMENT_PROVIDER=mercadopago)
+MP_ACCESS_TOKEN=
+MP_WEBHOOK_SECRET=

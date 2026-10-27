@@ -1,0 +1,107 @@
+RESOLUÇÃO CONTRAN Nº 1.013, DE 14 DE OUTUBRO DE 2024
+Dispõe sobre os sistemas de livre passagem (free flow) em vias urbanas e rurais.
+O CONSELHO NACIONAL DE TRÂNSITO - CONTRAN, no uso das competências que lhe conferem os incisos I, VII, VIII e XI do art. 12 e o § 10 do art. 115, da Lei nº 9.503, de 23 de setembro de 1997, que institui o Código de Trânsito Brasileiro, com base no que consta nos autos do processo administrativo nº 50000.023976/2021-61, resolve:
+CAPÍTULO I
+DISPOSIÇÕES PRELIMINARES
+Art. 1º Esta Resolução dispõe sobre os sistemas de livre passagem (free flow) em vias urbanas e rurais, incluídas as estradas e rodovias federais, estaduais, distritais e municipais, em todo o território nacional.
+Art. 2º Para os efeitos desta Resolução, adotam-se as seguintes definições:
+I - arquitetura de comunicação: conjunto de sistemas de informação, tecnologias e protocolos, utilizados para a comunicação entre os atores competentes, visando garantir a interoperabilidade dos dados necessários para a operação dos sistemas de livre passagem (free flow);
+II - canais válidos de recebimento: meios físicos ou virtuais, utilizando quaisquer tecnologias de pagamento, disponibilizados por operadores autorizados pelo órgão ou entidade executivo com circunscrição sobre a via para pagamento automático ou pagamento avulso da tarifa de pedágio em sistemas de livre passagem (free flow);
+III - concessionária: pessoa jurídica ou consórcio de empresas com delegação pelo poder concedente para exploração de trecho viário com cobrança pelo uso, nos termos da Lei nº 8.987, de 13 de fevereiro de 1995;
+IV - dia útil: qualquer data do calendário útil para fins de operações financeiras praticadas no mercado financeiro e de prestação de informações ao Banco Central do Brasil, conforme regulamento do Conselho Monetário Nacional;
+V - fornecedora de Vale-Pedágio obrigatório: empresa habilitada para viabilizar o pagamento automático ou avulso da tarifa de pedágio ao transportador pelo contratante, nos termos da Lei nº 10.209, de 23 de março de 2001, e na forma disciplinada pela Agência Nacional de Transportes Terrestres - ANTT;
+VI - operação dos sistemas de livre passagem (free flow): compreende o rol de ações ou atividades, de responsabilidade do órgão ou entidade executivo com circunscrição sobre a via ou das concessionárias, conforme o caso, para viabilizar a arrecadação de tarifas de pedágio por meio de sistemas de livre passagem (free flow);
+VII - órgão ou entidade executivo com circunscrição sobre a via: órgão ou entidade da administração pública responsável pela gestão do trecho viário ou órgão ou entidade que represente o poder concedente, nos casos de concessão de serviço público, nos termos da Lei nº 8.987, de 1995;
+VIII - órgão ou entidade executivo de trânsito ou rodoviário competente: órgão ou entidade componente do Sistema Nacional de Trânsito competente para a fiscalização da infração de trânsito prevista no art. 209-A da Lei nº 9.503, de 23 de setembro de 1997;
+IX - pagamento automático: pagamento da tarifa de pedágio em sistemas de livre passagem (free flow) realizado pelo usuário, através de contrato prévio e voluntário, por meio dos canais válidos de recebimento, viabilizado por operador autorizado pelo órgão ou entidade executivo com circunscrição sobre a via para arrecadação eletrônica de pedágio;
+X - pagamento avulso: pagamento da tarifa de pedágio em sistemas de livre passagem (free flow) realizado pelo usuário, em momento posterior à passagem do veículo pelo pedágio eletrônico, por meio dos canais válidos de recebimento, viabilizado por operador autorizado pelo órgão ou entidade executivo com circunscrição sobre a via para essa modalidade de pagamento;
+XI - pedágio eletrônico: local da via onde se realiza a identificação e classificação de veículos para efeitos de cobrança de uso de vias urbanas ou rurais pelo sistema de livre passagem (free flow);
+XII - pontos físicos para pagamento da tarifa de pedágio: locais físicos disponibilizados pelos órgãos ou entidades executivos com circunscrição sobre a via ou pelas concessionárias ou pelos canais válidos de recebimento, conforme o caso, dotados de capacidade para receber dos usuários o pagamento das tarifas de pedágio pendentes provenientes de passagens por pedágios eletrônicos, inclusive por meio de totem de autoatendimento;
+XIII - sistema de livre passagem (free flow): conjunto de procedimentos e sistemas que permite a cobrança de uso de vias urbanas ou rurais por meio de pedágios eletrônicos, sem a necessidade de parada ou redução de velocidade dos veículos, dispensados o uso de praças de pedágio ou barreiras físicas, na forma disciplinada por esta Resolução;
+XIV - sistema de Reconhecimento Óptico de Caracteres - OCR: tecnologia que permite o reconhecimento de caracteres a partir de uma imagem, utilizada para decodificação dos caracteres alfanuméricos das placas de identificação veicular;
+XV - tarifa de pedágio: valor devido pelo usuário em decorrência de passagem por pedágios eletrônicos;
+XVI - tag RFID (Radio-Frequency Identification): método de identificação baseado em equipamentos com tecnologia de rádio frequência que, associados à placa de identificação veicular, contribuam com a identificação do veículo nos pedágios eletrônicos;
+XVII - usuário: pessoa física ou jurídica responsável pelo pagamento da tarifa de pedágio nas vias urbanas ou rurais dotadas de sistemas de livre passagem (free flow), podendo ser, inclusive, o proprietário do veículo;
+XVIII - vias urbanas: ruas, avenidas, vielas, ou caminhos e similares abertos à circulação pública de veículos, situados na área urbana, caracterizados principalmente por possuírem imóveis edificados ao longo de sua extensão; e
+XIX - vias rurais: estradas e rodovias.
+CAPÍTULO II
+PLANEJAMENTO, DESENVOLVIMENTO, IMPLANTAÇÃO E OPERAÇÃO DOS SISTEMAS DE LIVRE PASSAGEM
+Art. 3º O planejamento, desenvolvimento, implantação e operação de sistemas de livre passagem (free flow) é de responsabilidade dos órgãos ou entidades executivos com circunscrição sobre a via ou das concessionárias, conforme o caso.
+§ 1º Os sistemas de livre passagem (free flow) devem ser homologados junto ao órgão máximo executivo de trânsito da União, conforme especificações por ele definidas em normativo específico, antes de iniciada sua operação.
+§ 2º Fica concedido o prazo de cento e oitenta dias, contados da publicação do normativo específico de que trata o § 1º, para homologação junto ao órgão máximo executivo de trânsito da União dos sistemas de livre passagem (free flow).
+§ 3º Os sistemas de livre passagem (free flow) que não forem homologados pelo órgão máximo executivo de trânsito da União, respeitado o prazo disposto no § 2º, não poderão ser utilizados para os fins do disposto no art. 115, § 10 da Lei nº 9.503, de 1997.
+Art. 4º Os órgãos ou entidades executivos com circunscrição sobre a via ou as concessionárias, conforme o caso, devem promover a instalação e manutenção de placas de sinalização vertical de indicação nos principais acessos e ao longo da via, de forma a garantir a informação prévia ao usuário de que o trecho é dotado de sistemas de livre passagem (free flow).
+§ 1º O projeto de sinalização referente aos sistemas de livre passagem (free flow) deve obedecer ao disposto nos Anexos III e IV da Resolução CONTRAN nº 973, de 18 de julho de 2022, que institui o Regulamento de Sinalização Viária.
+§ 2º A instalação de estruturas de pedágio eletrônico deve ser realizada de modo a garantir o trânsito de cargas excedentes em dimensões, contemplando, ainda, soluções alternativas de passagem destes veículos, observadas as limitações técnicas e operacionais características de cada local.
+§ 3º Os órgãos ou entidades executivos com circunscrição sobre a via ou as concessionárias, conforme o caso, promoverão campanhas educativas visando ampliar a compreensão e a assimilação dos sistemas de livre passagem (free flow) pelos usuários da via.
+Art. 5º Para efeitos de cobrança de uso de vias urbanas ou rurais pelo sistema de livre passagem (free flow), a identificação dos veículos se dará, concomitantemente:
+I - pela placa de identificação veicular;
+II - pela classificação veicular; e
+III - pelas imagens do veículo.
+§ 1º Os caracteres da placa de identificação veicular serão verificados por meio de sistema de Reconhecimento Óptico de Caracteres (OCR), ou por imagem ou vídeo da passagem do veículo pelo pedágio eletrônico, em caso de falha do OCR, sendo obrigação do proprietário do veículo manter sua placa de identificação em condições de visibilidade e legibilidade.
+§ 2º Poderão ser empregados, de forma complementar ao disposto no § 1º, métodos de identificação veicular tais como tag RFID ou outros meios tecnológicos de identificação automática de veículos, de forma isolada ou conjunta, na forma disciplinada pelo órgão ou entidade executivo com circunscrição sobre a via.
+§ 3º Nos casos de combinação veicular, a identificação se dará pela placa de identificação veicular da unidade tratora.
+§ 4º A classificação veicular de que trata o inciso II do caput deverá indicar o tipo de veículo para fins de cobrança de tarifas de pedágio, conforme regras estabelecidas pelo órgão ou entidade executivo com circunscrição sobre a via.
+§ 5º Para fins da classificação veicular de que trata o § 4º, deverá ser observado, no que couber, o disposto no art. 17 da Lei nº 13.103, de 2 de março de 2015.
+§ 6º As imagens de que trata o inciso III do caput deverão permitir a visualização panorâmica do veículo e a placa de identificação veicular, no momento de sua passagem pelo pedágio eletrônico.
+§ 7º Os órgãos ou entidades executivos com circunscrição sobre a via ou as concessionárias, conforme o caso, deverão armazenar as imagens de que tratam o § 6º por, no mínimo:
+I - noventa dias, contados da data da passagem pelo pedágio eletrônico; ou
+II - cinco anos, nos casos de ocorrência da infração de trânsito prevista no art. 209-A da Lei nº 9.503, de 1997.
+Art. 6º Os órgãos ou entidades executivos com circunscrição sobre a via ou as concessionárias, conforme o caso, promoverão a interoperabilidade dos dados de registros de passagem de veículos nos pedágios eletrônicos e de pagamento automático ou avulso das tarifas de pedágio com os sistemas do órgão máximo executivo de trânsito da União.
+§ 1º A interoperabilidade dos dados de que trata o caput se dará mediante arquitetura de comunicação, conforme requisitos e especificações definidos pelo órgão máximo executivo de trânsito da União.
+§ 2º É de responsabilidade exclusiva dos órgãos ou entidades executivos com circunscrição sobre a via ou das concessionárias, conforme o caso, zelar pela fidedignidade, integridade e autenticidade dos dados transmitidos ao órgão máximo executivo de trânsito da União.
+§ 3º A critério do órgão ou entidade executivo com circunscrição sobre a via ou da concessionária, conforme o caso, a interoperabilidade dos dados de pagamento automático ou avulso das tarifas de pedágio com os sistemas do órgão máximo executivo de trânsito da União poderá também ser efetuado pelos operadores responsáveis pelos canais válidos de recebimento, por meio da arquitetura de comunicação de que trata o § 1º.
+§ 4º A responsabilidade pela proteção dos dados pessoais, em conformidade à Lei nº 13.709, de 14 de agosto de 2019, Lei Geral de Proteção de Dados Pessoais - LGPD, é solidária entre todos os atores com acesso à arquitetura de comunicação de que trata o § 1º, na medida de suas atribuições e atividades.
+Art. 7º Será concedido ao usuário o prazo de trinta dias, contados da data da passagem do veículo pelo pedágio eletrônico, para o pagamento da tarifa de pedágio.
+§ 1º Caso a data limite para pagamento não seja considerada dia útil, nos termos desta Resolução, o prazo máximo de que trata o caput será estendido até o próximo dia útil.
+§ 2º O usuário poderá pagar as tarifas de pedágio utilizando quaisquer canais válidos de recebimento.
+§ 3º Deverão ser disponibilizados ao usuário canais para contestação das passagens ou dos valores cobrados que julgar indevidos.
+§ 4º O registro da contestação de que trata o § 3º não interrompe o prazo previsto no caput, garantidos o direito de defesa prévia e de interposição de recursos, em caso de infração de trânsito, nos termos da Lei nº 9.503, de 1997, e dos regulamentos do Conselho Nacional de Trânsito - CONTRAN.
+§ 5º A critério do órgão ou entidade executivo com circunscrição sobre a via ou da concessionária, conforme o caso, poderão ser disponibilizados pontos físicos para pagamento da tarifa de pedágio, inclusive com recursos em espécie, desde que fornecido comprovante de pagamento ao usuário.
+§ 6º Os veículos licenciados no exterior que possuírem débitos relacionados à tarifa de pedágio por passagem em pedágios eletrônicos não poderão deixar o país antes de efetuado o pagamento, estando sujeitos à retenção pela autoridade competente, até a regularização das pendências.
+§ 7º Os órgãos ou entidades executivos com circunscrição sobre a via ou as concessionárias, conforme o caso, e os operadores responsáveis pelos canais válidos de recebimento deverão oferecer meios para pagamento das tarifas pendentes aos usuários de veículos licenciados no exterior.
+Art. 8º É direito do usuário a disponibilização, em formato digital, de seus registros de passagem em pedágios eletrônicos de sistemas de livre passagem (free flow), bem como da situação de pagamento das tarifas de pedágio, de forma concomitante, pelos:
+I - meios digitais disponibilizados pelo órgão máximo executivo de trânsito da União;
+II - meios digitais disponibilizados pelo órgão ou entidade executivo com circunscrição sobre a via ou pela concessionária, conforme o caso; e
+III - meios digitais disponibilizados pelos canais válidos de recebimento.
+§ 1º Para cumprimento do disposto no inciso I do caput, o órgão máximo executivo de trânsito da União utilizará as informações disponibilizadas pelo órgão ou entidade executivo com circunscrição sobre a via ou pela concessionária, conforme o caso, ou pelos operadores responsáveis pelos canais válidos de recebimento.
+§ 2º O sistema de notificação eletrônica de que trata o art. 282-A da Lei nº 9.503, de 1997, poderá ser utilizado para comunicações de interesse dos usuários de sistemas de livre passagem (free flow).
+§ 3º Os meios digitais disponibilizados devem orientar ao usuário, de forma clara, os procedimentos, as formas de pagamento aceitas e os prazos máximos para pagamento das tarifas de pedágio.
+§ 4º As informações dispostas no caput devem estar sincronizadas entre os diferentes meios digitais disponibilizados ao usuário, de forma a se evitar erros e pagamentos em duplicidade.
+§ 5º Em caso de inviabilidade sistêmica ou operacional, fica dispensada a disponibilização de um ou mais meios digitais previstos no caput aos usuários de veículos licenciados no exterior.
+Art. 9º A inobservância ao disposto no art. 7º desta Resolução configura infração de trânsito prevista no art. 209-A da Lei nº 9.503, de 1997, a ser verificada pelo órgão ou entidade executivo de trânsito ou rodoviário competente.
+§ 1º A infração disposta no caput será verificada por meio de sistemas automáticos não metrológicos de fiscalização, conforme Resolução CONTRAN nº 920, de 28 de março de 2022.
+§ 2º O órgão ou entidade executivo de trânsito ou rodoviário competente deve observar as condições e procedimentos estabelecidos na Lei nº 9.503, de 1997, na Resolução CONTRAN nº 985, de 15 de dezembro de 2022, e nos demais regulamentos do CONTRAN e do órgão máximo executivo de trânsito da União.
+§ 3º O órgão ou entidade executivo de trânsito ou rodoviário competente deverá ter acesso direto e integrado às informações necessárias para a constatação da infração de trânsito e lavratura do auto de infração de trânsito.
+§ 4º O pagamento da multa de trânsito decorrente da infração de que trata o caput não desobriga o usuário de realizar o pagamento das tarifas de pedágio devidas.
+§ 5º O tipo infracional e a situação descrita no caput não afastam a possibilidade de aplicação de outras infrações, penalidades e medidas administrativas previstas na Lei nº 9.503, de 1997.
+§ 6º A utilização de sistemas de livre passagem (free flow) não homologados pelo órgão máximo executivo de trânsito da União, ou a não observância ao disposto no art. 8º desta Resolução afastam a infração disposta no caput, sendo vedada a lavratura de auto de infração de trânsito com base no art. 209-A do CTB.
+CAPÍTULO III
+DISPOSIÇÕES FINAIS
+Art. 10. O Anexo III da Resolução CONTRAN nº 973, de 2022, passa a vigorar com as alterações constantes no Anexo I desta Resolução.
+Art. 11. O Anexo IV da Resolução CONTRAN nº 973, de 2022, passa a vigorar com as alterações constantes no Anexo II desta Resolução.
+Art. 12. O Anexo da Resolução CONTRAN nº 985, de 2022, passa a vigorar com as alterações constantes no Anexo III desta Resolução.
+Art. 13. Fica revogada a Resolução CONTRAN nº 984, de 15 de dezembro de 2022.
+Art. 14. Esta Resolução entra em vigor na data de sua publicação.
+GEORGE ANDRÉ PALERMO SANTORO
+Presidente do Conselho Em exercício
+DANIEL GOMES DE ALMEIDA FILHO
+p/Ministério da Ciência, Tecnologia e Inovações
+FERNANDA MARA DE OLIVEIRA MACEDO CARNEIRO PACOBAHYBA
+p/Ministério da Educação
+ANDRÉ GUSTAVO SILVEIRA GUIMARÃES
+p/Ministério da Defesa
+ADALBERTO FELÍCIO MALUF FILHO
+p/Ministério do Meio Ambiente e Mudança do Clima
+ANTÔNIO FERNANDO SOUZA OLIVEIRA
+p/Ministério da Justiça e Segurança Pública
+GISELA MARIA FIGUEIREDO PADOVAN
+p/Ministério das Relações Exteriores
+UALLACE MOREIRA LIMA
+p/Ministério do Desenvolvimento, Indústria, Comércio e Serviços
+DENIS EDUARDO ANDIA
+p/Ministério das Cidades
+ANEXO
+Este conteúdo não substitui o publicado na versão certificada.
+Borda do rodapé
+Logo da Imprensa
