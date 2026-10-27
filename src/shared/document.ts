@@ -1,6 +1,6 @@
 // Montagem da peça a partir do template. O fundamento jurídico vem literalmente da base;
 // a LLM só fornece os parágrafos de narrativa dos fatos (já validados).
-import { PIECES, getThesis, resolveFundamento, type ExcerptRef, type Fundamento, type PieceType } from "./legal";
+import { NO_THESES, PIECES, getThesis, resolveFundamento, type ExcerptRef, type Fundamento, type PieceType } from "./legal";
 import type { Diagnosis, Finding } from "./rules/engine";
 import { formatBR } from "./rules/dates";
 import type { Confirmed, Requester } from "./schemas";
@@ -79,6 +79,9 @@ export function buildDocument(input: {
       fundamentos: refs.map(resolveFundamento),
     });
     pedidos.push(t.pedido);
+  }
+  if (!direito.length) {
+    direito.push({ titulo: NO_THESES.titulo, paragrafos: [NO_THESES.texto_modelo], fundamentos: NO_THESES.fundamento[pieceType].map(resolveFundamento) });
   }
   pedidos.push(piece.pedido_final);
 

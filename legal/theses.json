@@ -477,5 +477,53 @@
         }
       ]
     }
+  },
+  "sem_teses": {
+    "titulo": "Pedido de análise da consistência do auto",
+    "texto_modelo": "O requerente pede que a autoridade competente examine a consistência do auto de infração e aprecie esta manifestação, inclusive quanto ao mérito, antes de aplicar qualquer penalidade.",
+    "fundamento": {
+      "defesa_previa": [
+        {
+          "excerpt": "CTB_ART_281",
+          "seletor": {
+            "caput": true
+          }
+        },
+        {
+          "excerpt": "R918_ART_9",
+          "seletor": {
+            "caput": true
+          }
+        }
+      ],
+      "recurso_jari": [
+        {
+          "excerpt": "CTB_ART_281",
+          "seletor": {
+            "caput": true
+          }
+        },
+        {
+          "excerpt": "CTB_ART_285",
+          "seletor": {
+            "caput": true
+          }
+        }
+      ],
+      "recurso_segunda_instancia": [
+        {
+          "excerpt": "CTB_ART_281",
+          "seletor": {
+            "caput": true
+          }
+        },
+        {
+          "excerpt": "CTB_ART_288",
+          "seletor": {
+            "caput": true
+          }
+        }
+      ]
+    }
   }
 }

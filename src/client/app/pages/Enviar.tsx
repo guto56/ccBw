@@ -95,9 +95,9 @@ export default function Enviar() {
     try {
       setBusy("Preparando as imagens…");
       const form = new FormData();
-      for (const f of await prepareFiles(notif, config.pdf_nativo)) form.append("notificacao", f);
-      for (const f of await prepareFiles(imagem.slice(0, 1), config.pdf_nativo)) form.append("imagem_infracao", f);
-      for (const f of await prepareFiles(crlv.slice(0, 1), config.pdf_nativo)) form.append("crlv", f);
+      for (const f of await prepareFiles(notif, config.pdf_nativo, config.limite_arquivo_bytes)) form.append("notificacao", f);
+      for (const f of await prepareFiles(imagem.slice(0, 1), config.pdf_nativo, config.limite_arquivo_bytes)) form.append("imagem_infracao", f);
+      for (const f of await prepareFiles(crlv.slice(0, 1), config.pdf_nativo, config.limite_arquivo_bytes)) form.append("crlv", f);
       form.append("consent", "true");
       form.append("turnstile", ts.token!);
       if (email.trim()) form.append("email", email.trim());

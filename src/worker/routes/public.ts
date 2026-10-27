@@ -3,6 +3,7 @@ import { z } from "zod";
 import { logEvent, setStatus } from "../db";
 import { getProvider } from "../payments";
 import { newId } from "../util";
+import { fileStore } from "../storage";
 
 export const publicRoutes = new Hono<{ Bindings: Env }>();
 
@@ -14,6 +15,7 @@ publicRoutes.get("/config", (c) =>
     pagamento: c.env.PAYMENT_PROVIDER === "mercadopago" && c.env.MP_ACCESS_TOKEN ? "mercadopago" : "mock",
     pdf_nativo: c.env.MODEL_VISION_ACCEPTS_PDF === "true",
     leitura_automatica: Boolean(c.env.OPENROUTER_API_KEY),
+    limite_arquivo_bytes: fileStore(c.env).maxObjectBytes,
   }),
 );
 

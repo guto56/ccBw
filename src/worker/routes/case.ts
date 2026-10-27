@@ -3,6 +3,7 @@ import { Hono } from "hono";
 import { z } from "zod";
 import { caseByToken, logEvent, setStatus, thesisOverrides, type CaseRow } from "../db";
 import { encryptJson } from "../crypto";
+import { fileStore } from "../storage";
 import { verifyTurnstile } from "../turnstile";
 import { newCaseToken, newId, sha256Hex } from "../util";
 import { FRIENDLY, LlmError } from "../llm/openrouter";
@@ -46,6 +47,7 @@ caseRoutes.post("/cases", async (c) => {
       if (!(v instanceof File) || v.size === 0) continue;
       if (!ALLOWED.has(v.type)) return fail(400, `Formato não aceito: ${v.name}. Envie JPG, PNG, WEBP ou PDF.`);
       if (v.size > MAX_FILE) return fail(400, `O arquivo ${v.name} passa de 8 MB.`);
+      if (v.size > fileStore(c.env).maxObjectBytes) return fail(400, `O arquivo ${v.name} é grande demais para o ambiente de testes. Envie fotos (até 1,9 MB) em vez de PDF.`);
       total += v.size;
       files.push({ kind, file: v });
     }
@@ -67,7 +69,7 @@ caseRoutes.post("/cases", async (c) => {
   let n = 0;
   for (const f of files) {
     const key = `cases/${id}/${f.kind}-${++n}.${EXT[f.file.type]}`;
-    await c.env.UPLOADS.put(key, f.file.stream(), { httpMetadata: { contentType: f.file.type } });
+    await fileStore(c.env).put(key, await f.file.arrayBuffer(), f.file.type);
     await c.env.DB.prepare("INSERT INTO uploads (id, case_id, kind, r2_key, content_type, size, created_at) VALUES (?,?,?,?,?,?,?)")
       .bind(newId(), id, f.kind, key, f.file.type, f.file.size, now)
       .run();
@@ -131,7 +133,7 @@ caseRoutes.get("/case/file/:id", async (c) => {
   const row = c.get("case");
   const up = await c.env.DB.prepare("SELECT r2_key, content_type FROM uploads WHERE id = ? AND case_id = ?").bind(c.req.param("id"), row.id).first<{ r2_key: string; content_type: string }>();
   if (!up) return fail(404, "Arquivo não encontrado.");
-  const obj = await c.env.UPLOADS.get(up.r2_key);
+  const obj = await fileStore(c.env).get(up.r2_key);
   if (!obj) return fail(404, "Arquivo não encontrado.");
   return new Response(obj.body, { headers: { "Content-Type": up.content_type, "Cache-Control": "private, no-store" } });
 });
@@ -142,7 +144,7 @@ async function loadFiles(env: Env, caseId: string, kind: Kind): Promise<FilePart
   const r = await env.DB.prepare("SELECT r2_key, content_type FROM uploads WHERE case_id = ? AND kind = ? ORDER BY created_at").bind(caseId, kind).all<{ r2_key: string; content_type: string }>();
   const out: FilePart[] = [];
   for (const u of r.results ?? []) {
-    const obj = await env.UPLOADS.get(u.r2_key);
+    const obj = await fileStore(env).get(u.r2_key);
     if (obj) out.push({ contentType: u.content_type, bytes: new Uint8Array(await obj.arrayBuffer()), filename: u.r2_key.split("/").pop()! });
   }
   return out;
@@ -287,8 +289,8 @@ caseRoutes.get("/case/payment", async (c) => {
 async function storedDocument(env: Env, caseId: string): Promise<{ doc: DocumentModel; plain: string } | null> {
   const d = await env.DB.prepare("SELECT r2_key FROM documents WHERE case_id = ? ORDER BY created_at DESC LIMIT 1").bind(caseId).first<{ r2_key: string }>();
   if (!d?.r2_key) return null;
-  const obj = await env.UPLOADS.get(d.r2_key);
-  return obj ? ((await obj.json()) as { doc: DocumentModel; plain: string }) : null;
+  const obj = await fileStore(env).get(d.r2_key);
+  return obj ? await obj.json<{ doc: DocumentModel; plain: string }>() : null;
 }
 
 caseRoutes.post("/case/generate", async (c) => {
@@ -314,7 +316,7 @@ caseRoutes.post("/case/generate", async (c) => {
   }
   const plain = documentPlainText(doc);
   const key = `cases/${row.id}/documento.json`;
-  await c.env.UPLOADS.put(key, JSON.stringify({ doc, plain }), { httpMetadata: { contentType: "application/json" } });
+  await fileStore(c.env).put(key, JSON.stringify({ doc, plain }), "application/json");
   const v = validateText([...doc.fatos, ...doc.direito.flatMap((s) => s.paragrafos)].join("\n"));
   const now = Date.now();
   await c.env.DB.batch([
@@ -389,12 +391,7 @@ caseRoutes.post("/case/outcome", async (c) => {
 // ---------- Exclusão a pedido do usuário (LGPD) ----------
 
 export async function purgeCase(env: Env, caseId: string): Promise<void> {
-  let cursor: string | undefined;
-  do {
-    const list = await env.UPLOADS.list({ prefix: `cases/${caseId}/`, cursor });
-    if (list.objects.length) await env.UPLOADS.delete(list.objects.map((o) => o.key));
-    cursor = list.truncated ? list.cursor : undefined;
-  } while (cursor);
+  await fileStore(env).deletePrefix(`cases/${caseId}/`);
   const now = Date.now();
   await env.DB.batch([
     env.DB.prepare("UPDATE cases SET email = NULL, confirmed_json = NULL, diagnosis_json = NULL, status = 'purged', purged_at = ?, updated_at = ? WHERE id = ?").bind(now, now, caseId),

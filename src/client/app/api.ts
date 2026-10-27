@@ -72,6 +72,7 @@ export interface Config {
   pagamento: "mock" | "mercadopago";
   pdf_nativo: boolean;
   leitura_automatica: boolean;
+  limite_arquivo_bytes: number;
 }
 
 let configPromise: Promise<Config> | null = null;

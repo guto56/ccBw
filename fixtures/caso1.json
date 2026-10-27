@@ -1,0 +1,43 @@
+{
+ "nome": "caso1-intempestividade",
+ "arquivos": {
+  "notificacao": [
+   "fixtures/caso1-notificacao.png"
+  ]
+ },
+ "usar_extracao": true,
+ "confirmado": {
+  "tipo_documento": "notificacao_autuacao",
+  "orgao_autuador": "AUTARQUIA MUNICIPAL DE TRÂNSITO DE VILA EXEMPLO",
+  "numero_auto": "EX-2026-000731",
+  "codigo_infracao": "EX01-0 (fictício)",
+  "descricao_infracao": "Dirigir o veículo segurando ou manuseando telefone celular",
+  "artigo_infracao": "252, parágrafo único",
+  "data_infracao": "2026-08-03",
+  "hora_infracao": "07:42",
+  "local_infracao": "Av. das Palmeiras, 1200, sentido centro",
+  "placa": "EXE1A23",
+  "marca_modelo": "VW/GOL 1.0",
+  "data_expedicao": "2026-09-10",
+  "data_postagem": "2026-09-11",
+  "prazo_final": "2026-11-16",
+  "agente_identificacao": "Matrícula 40213 (fictícia)",
+  "equipamento_identificacao": "Câmera VM-07 (fictícia)",
+  "valor": 293.47,
+  "pontos": 7,
+  "tem_imagem": true,
+  "meio_constatacao": "videomonitoramento",
+  "imagem": {
+   "objeto_na_mao": "celular_identificavel",
+   "cinto": null,
+   "placa_legivel": true,
+   "pessoa_em_foco": "condutor"
+  }
+ },
+ "esperado": {
+  "achados": [
+   "R_INTEMPESTIVIDADE_NA"
+  ],
+  "forca": "forte"
+ }
+}

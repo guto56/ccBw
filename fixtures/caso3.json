@@ -1,0 +1,49 @@
+{
+ "nome": "caso3-celular-imagem-ambigua",
+ "arquivos": {
+  "notificacao": [
+   "fixtures/caso3-notificacao.png"
+  ]
+ },
+ "usar_extracao": true,
+ "confirmado": {
+  "tipo_documento": "notificacao_autuacao",
+  "orgao_autuador": "AUTARQUIA MUNICIPAL DE TRÂNSITO DE VILA EXEMPLO",
+  "numero_auto": "EX-2026-009902",
+  "codigo_infracao": "EX01-0 (fictício)",
+  "descricao_infracao": "Dirigir o veículo segurando ou manuseando telefone celular",
+  "artigo_infracao": "252, parágrafo único",
+  "data_infracao": "2026-09-28",
+  "hora_infracao": "21:17",
+  "local_infracao": "Rodovia Exemplo, km 14, pista norte",
+  "placa": "EXE7C89",
+  "marca_modelo": "HYUNDAI/HB20 1.0M",
+  "data_expedicao": "2026-10-09",
+  "data_postagem": "2026-10-10",
+  "prazo_final": "2026-11-24",
+  "agente_identificacao": null,
+  "equipamento_identificacao": "Sistema nº 0042 (fictício)",
+  "valor": 293.47,
+  "pontos": 7,
+  "tem_imagem": true,
+  "ausentes": [
+   "agente"
+  ],
+  "meio_constatacao": "sanmft",
+  "sanmft_conformidade_informada": "nao",
+  "imagem": {
+   "objeto_na_mao": "objeto_nao_identificavel",
+   "cinto": null,
+   "placa_legivel": true,
+   "pessoa_em_foco": "indeterminado"
+  }
+ },
+ "esperado": {
+  "achados": [
+   "R_IMAGEM_INCONCLUSIVA",
+   "R_AGENTE_NAO_IDENTIFICADO",
+   "R_SANMFT_SEM_CONFORMIDADE"
+  ],
+  "forca": "moderada"
+ }
+}

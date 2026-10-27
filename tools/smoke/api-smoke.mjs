@@ -36,7 +36,7 @@ let confirmed = spec.confirmado;
 if (ex.extraction?.notificacao && spec.usar_extracao) {
   const n = ex.extraction.notificacao;
   confirmed = { ...spec.confirmado };
-  for (const k of Object.keys(n)) if (k in confirmed && n[k]?.value != null) confirmed[k] = n[k].value;
+  for (const k of Object.keys(n)) if (k in confirmed && n[k]?.value != null && typeof n[k].value !== "object") confirmed[k] = n[k].value;
   log("campos lidos pela IA:", Object.entries(n).filter(([, v]) => v?.value != null).length);
 }
 const { diagnosis } = await api("/api/case/confirm", { token, method: "POST", json: { confirmed } });

@@ -19,16 +19,16 @@
       "migrations_dir": "migrations"
     }
   ],
-  "r2_buckets": [
-    { "binding": "UPLOADS", "bucket_name": "contramulta-uploads" }
-  ],
+  // R2 ainda não está ativo na conta. Depois de ativar, crie o bucket e descomente:
+  // "r2_buckets": [{ "binding": "UPLOADS", "bucket_name": "contramulta-uploads" }],
+  // Sem o binding, os arquivos ficam na tabela "blobs" do D1 (até 1,9 MB cada; src/worker/storage.ts).
   "triggers": { "crons": ["17 6 * * *"] },
   "observability": {
     "enabled": true,
     "traces": { "enabled": true }
   },
   "secrets": {
-    "required": ["OPENROUTER_API_KEY", "ADMIN_TOKEN", "DATA_KEY", "TURNSTILE_SECRET_KEY"]
+    "required": ["ADMIN_TOKEN", "DATA_KEY", "TURNSTILE_SECRET_KEY"]
   },
   "vars": {
     "APP_ENV": "test",

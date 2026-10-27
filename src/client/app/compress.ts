@@ -35,17 +35,17 @@ export async function pdfToImages(file: File, pages = 2): Promise<File[]> {
     canvas.width = Math.round(viewport.width);
     canvas.height = Math.round(viewport.height);
     await page.render({ canvas, canvasContext: canvas.getContext("2d")!, viewport }).promise;
-    const blob = await canvasToBlob(canvas, "image/png");
-    out.push(new File([blob], `${file.name.replace(/\.pdf$/i, "")}-p${i}.png`, { type: "image/png" }));
+    const blob = await canvasToBlob(canvas, "image/jpeg", 0.85);
+    out.push(new File([blob], `${file.name.replace(/\.pdf$/i, "")}-p${i}.jpg`, { type: "image/jpeg" }));
   }
   return out;
 }
 
-export async function prepareFiles(files: File[], pdfNative: boolean): Promise<File[]> {
+export async function prepareFiles(files: File[], pdfNative: boolean, maxBytes = Infinity): Promise<File[]> {
   const out: File[] = [];
   for (const f of files) {
     if (f.type === "application/pdf") {
-      if (pdfNative) out.push(f);
+      if (pdfNative && f.size <= maxBytes) out.push(f);
       else out.push(...(await pdfToImages(f)));
     } else if (f.type.startsWith("image/")) {
       out.push(await compressImage(f));

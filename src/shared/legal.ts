@@ -86,6 +86,7 @@ const CTB_ARTIGOS = new Set<string>(ctbArtigos.artigos);
 export const THESES: Thesis[] = thesesData.teses as Thesis[];
 export const PIECES = thesesData.pecas as Record<PieceType, PieceTemplate>;
 export const NOTICES = thesesData.avisos as Record<string, { fundamento: ExcerptRef[] }>;
+export const NO_THESES = thesesData.sem_teses as { titulo: string; texto_modelo: string; fundamento: Record<PieceType, ExcerptRef[]> };
 
 export function listExcerpts(): Excerpt[] {
   return [...EXCERPTS.values()];

@@ -96,6 +96,16 @@ describe("documento", () => {
     expect(txt).toContain("Antes de protocolar");
   });
 
+  it("sem teses, a peça traz o pedido de análise com fundamento literal", () => {
+    const limpo = ConfirmedSchema.parse({ ...confirmed, descricao_infracao: "Dirigir o veículo segurando ou manuseando telefone celular", data_expedicao: "2026-08-20", pontos: 7, ausentes: [], crlv: null, imagem: null, tem_imagem: false, meio_constatacao: "nao_sei", sanmft_conformidade_informada: "nao_sei" });
+    const dd = diagnose(limpo, "2026-10-27");
+    expect(dd.teses_elegiveis).toEqual([]);
+    const doc = buildDocument({ confirmed: limpo, diagnosis: dd, selected: [], narrative: fallbackNarrative(limpo, dd), requester: RequesterSchema.parse({}), testEnvironment: false });
+    expect(doc.direito).toHaveLength(1);
+    expect(doc.direito[0]!.fundamentos[0]!.texto).toContain("julgará a consistência do auto de infração");
+    expect(validateText(doc.direito[0]!.paragrafos[0]!).ok).toBe(true);
+  });
+
   it("gera lembrete .ics", () => {
     const ics = deadlineIcs({ uid: "abc", deadline: "2026-11-20", title: "Prazo da defesa", description: "Protocole até hoje", url: "https://exemplo/c/x", now: new Date("2026-10-27T12:00:00Z") });
     expect(ics).toContain("DTSTART;VALUE=DATE:20261120");
