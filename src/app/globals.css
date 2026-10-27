@@ -1,26 +1,303 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+ * Carimbo: o formulário contínuo.
+ * Papel branco frio levemente esverdeado, faixas verde-claras, grafite e a caneta azul do
+ * contador como única cor de ação. Modo escuro: mesa à noite com papel sob a luminária.
+ */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root {
+  --papel: #f6f8f5;
+  --papel-2: #edf1ec; /* um passo abaixo do papel: barra lateral, cabeçalhos */
+  --superficie: #fbfcfa; /* folha sobre a mesa */
+  --faixa: #e3eee4;
+  --grafite: #1e2733;
+  --grafite-2: #4a5563; /* texto secundário, 7.4:1 sobre o papel */
+  --grafite-3: #66707d; /* rótulos pequenos, 4.9:1 sobre o papel */
+  --linha: #c9d3cb; /* linhas de campo */
+  --linha-forte: #8e9a92;
+  --caneta: #1f3fb0;
+  --caneta-hover: #18328c;
+  --caneta-suave: #e4e9f8;
+  --sobre-caneta: #ffffff;
+  --ok: #2e7a4e;
+  --ok-suave: #e1f0e6;
+  --revisar: #a86a12;
+  --revisar-texto: #8a560b; /* texto âmbar com contraste AA sobre faixa */
+  --revisar-suave: #f6ecd9;
+  --erro: #a8321f;
+  --erro-suave: #f6e1dc;
+  --furo: #d5dcd6; /* furos de tração */
+  --foco: #1f3fb0;
+  --sombra-folha: 0 1px 2px rgb(30 39 51 / 0.06), 0 8px 24px -12px rgb(30 39 51 / 0.18);
+  color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme="light"]) {
+    --papel: #12171d;
+    --papel-2: #171d24;
+    --superficie: #1b222a;
+    --faixa: #1f2b25;
+    --grafite: #e3e8e2;
+    --grafite-2: #b4bdb6;
+    --grafite-3: #959f98;
+    --linha: #34403a;
+    --linha-forte: #56645b;
+    --caneta: #8ea6ff;
+    --caneta-hover: #b0c1ff;
+    --caneta-suave: #232d4a;
+    --sobre-caneta: #0f1424;
+    --ok: #6cc595;
+    --ok-suave: #1a3326;
+    --revisar: #e3a64a;
+    --revisar-texto: #e8b462;
+    --revisar-suave: #3a2c15;
+    --erro: #f08b74;
+    --erro-suave: #3d1f19;
+    --furo: #0d1115;
+    --foco: #8ea6ff;
+    --sombra-folha: 0 1px 2px rgb(0 0 0 / 0.4), 0 12px 32px -12px rgb(0 0 0 / 0.6);
+    color-scheme: dark;
   }
 }
 
+:root[data-theme="dark"] {
+  --papel: #12171d;
+  --papel-2: #171d24;
+  --superficie: #1b222a;
+  --faixa: #1f2b25;
+  --grafite: #e3e8e2;
+  --grafite-2: #b4bdb6;
+  --grafite-3: #959f98;
+  --linha: #34403a;
+  --linha-forte: #56645b;
+  --caneta: #8ea6ff;
+  --caneta-hover: #b0c1ff;
+  --caneta-suave: #232d4a;
+  --sobre-caneta: #0f1424;
+  --ok: #6cc595;
+  --ok-suave: #1a3326;
+  --revisar: #e3a64a;
+  --revisar-texto: #e8b462;
+  --revisar-suave: #3a2c15;
+  --erro: #f08b74;
+  --erro-suave: #3d1f19;
+  --furo: #0d1115;
+  --foco: #8ea6ff;
+  --sombra-folha: 0 1px 2px rgb(0 0 0 / 0.4), 0 12px 32px -12px rgb(0 0 0 / 0.6);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-papel: var(--papel);
+  --color-papel-2: var(--papel-2);
+  --color-superficie: var(--superficie);
+  --color-faixa: var(--faixa);
+  --color-grafite: var(--grafite);
+  --color-grafite-2: var(--grafite-2);
+  --color-grafite-3: var(--grafite-3);
+  --color-linha: var(--linha);
+  --color-linha-forte: var(--linha-forte);
+  --color-caneta: var(--caneta);
+  --color-caneta-hover: var(--caneta-hover);
+  --color-caneta-suave: var(--caneta-suave);
+  --color-sobre-caneta: var(--sobre-caneta);
+  --color-ok: var(--ok);
+  --color-ok-suave: var(--ok-suave);
+  --color-revisar: var(--revisar);
+  --color-revisar-texto: var(--revisar-texto);
+  --color-revisar-suave: var(--revisar-suave);
+  --color-erro: var(--erro);
+  --color-erro-suave: var(--erro-suave);
+  --font-sans: var(--fonte-texto), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--fonte-codigo), ui-monospace, monospace;
+
+  /* Escala tipográfica (razão ~1.25, base 15px na interface) */
+  --text-rotulo: 0.6875rem; /* 11px: rótulo de campo de DANFE */
+  --text-rotulo--line-height: 1rem;
+  --text-mini: 0.75rem;
+  --text-mini--line-height: 1.1rem;
+  --text-tabela: 0.8125rem; /* 13px: linhas da tabela */
+  --text-tabela--line-height: 1.25rem;
+  --text-corpo: 0.9375rem; /* 15px */
+  --text-corpo--line-height: 1.5rem;
+  --text-titulo-3: 1.125rem;
+  --text-titulo-3--line-height: 1.5rem;
+  --text-titulo-2: 1.5rem;
+  --text-titulo-2--line-height: 1.95rem;
+  --text-titulo-1: 2.125rem;
+  --text-titulo-1--line-height: 2.5rem;
+  --text-display: clamp(2.125rem, 1.5rem + 2.2vw, 3.25rem);
+  --text-display--line-height: 1.04;
+
+  --radius-campo: 3px;
+  --shadow-folha: var(--sombra-folha);
+}
+
+html {
+  background: var(--papel);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--papel);
+  color: var(--grafite);
+  font-family: var(--font-sans);
+  font-size: var(--text-corpo);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--caneta-suave);
+  color: var(--grafite);
+}
+
+:focus-visible {
+  outline: 2px solid var(--foco);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+a {
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+
+input,
+select,
+textarea {
+  caret-color: var(--caneta);
+  accent-color: var(--caneta);
+}
+
+* {
+  scrollbar-color: var(--linha-forte) transparent;
+  scrollbar-width: thin;
+}
+
+/* Código fiscal: mono, algarismos tabulares. Só para NCM, CST, cClassTrib, CNPJ, CEST, EAN. */
+.codigo {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "zero" 1;
+  letter-spacing: 0;
+}
+
+.numeros {
+  font-variant-numeric: tabular-nums;
+}
+
+.medida {
+  max-width: 68ch;
+}
+
+/* ------------------------------------------------------------------ */
+/* Formulário contínuo                                                 */
+/* ------------------------------------------------------------------ */
+
+.perfuracao {
+  background-image: linear-gradient(to bottom, var(--linha-forte) 50%, transparent 50%);
+  background-size: 1px 6px;
+  background-repeat: repeat-y;
+}
+
+/* Impressão: as linhas visíveis saem da impressora, a margem desliza junto. */
+@keyframes sair-da-impressora {
+  from {
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(-6px);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes margem-desliza {
+  from {
+    transform: translateY(-144px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.imprimindo {
+  animation: sair-da-impressora 160ms steps(4, end) both;
+}
+
+.margem-deslizando {
+  animation: margem-desliza 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Visto de caneta: traço desenhado. */
+@keyframes desenhar-traco {
+  from {
+    stroke-dashoffset: var(--comprimento, 40);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.visto-animado path {
+  stroke-dasharray: var(--comprimento, 40);
+  animation: desenhar-traco 250ms cubic-bezier(0.3, 0.6, 0.2, 1) both;
+}
+
+@keyframes numero-entra {
+  from {
+    transform: translateY(40%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.numero-mudou {
+  display: inline-block;
+  animation: numero-entra 180ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imprimindo,
+  .margem-deslizando,
+  .visto-animado path,
+  .numero-mudou {
+    animation: none !important;
+  }
+  * {
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+  }
+}
+
+/* Ícone do botão de tema: lua no claro, sol no escuro. */
+.tema-icone-sol {
+  display: none;
+}
+:root[data-theme="dark"] .tema-icone-sol {
+  display: block;
+}
+:root[data-theme="dark"] .tema-icone-lua {
+  display: none;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tema-icone-sol {
+    display: block;
+  }
+  :root:not([data-theme="light"]) .tema-icone-lua {
+    display: none;
+  }
+}
+
+/* Furo de tração da margem do formulário contínuo. */
+.margem-perfurada-furo {
+  fill: var(--furo);
+  stroke: var(--linha-forte);
+  stroke-width: 0.6;
 }
